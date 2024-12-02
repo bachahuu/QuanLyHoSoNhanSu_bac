@@ -72,15 +72,15 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="./NguoiDung/index_NguoiDung.php">
+                <li><a href="../TaiKhoan/TaiKhoan_Index.php">
                         <i class="uil uil-user"></i>
                         <span class="link-name">Quản lý tài khoản</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../NhanSu/NhanSu_Index.php">
                         <i class="uil uil-table"></i>
                         <span class="link-name">Quản lý nhân sự</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Thongtincongviec/ThongTinCongViec.php">
                         <i class="uil uil-book-reader"></i>
                         <span class="link-name">Quản lý công việc</span>
                     </a></li>
@@ -107,7 +107,7 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
             </ul>
 
             <ul class="logout-mode">
-                <li><a href="./Login/DangXuat.php">
+                <li><a href="../Login/DangXuat.php">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
@@ -138,14 +138,15 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                 </form>
             </div>
 
-            <img src="./Img/profile.jpg" alt="Avatar" style="margin-right: 50px;">
+            <img src="../Img/IMG_0190.JPG" alt="Avatar" style="margin-right: 50px;">
         </div>
         <div class="dash-content">
             <div class="container-fluid">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="w-100 text-center ">Danh Sách Công Việc</h1>
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalAdd"
-                        style="margin-right: 20px;">Thêm</button>
+                    <h1 class="w-100 text-center " style="margin-top: 15px;">Danh Sách Công Việc</h1>
+                    <button type="button" class="btn btn-info d-flex justify-content-center align-items-center"
+                        data-toggle="modal" data-target="#myModalAdd"
+                        style="margin-right: 20px;height: 35px;margin-top:5px;">Thêm</button>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
@@ -334,8 +335,8 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                     <form action="edit.php" method="post" id="updateForm">
                         <input type="hidden" name="MaCongViec" id="ma"> <!-- Hidden field for MaCongViec -->
                         <!-- Hidden field lưu MaChucVu (giữ giá trị chức vụ cũ) -->
-                        <input type="flex" id="MaChucVuCu" name="MaChucVuCu" value="">
-                        <input type="flex" id="MaNhanSu" name="MaNhanSu" value="">
+                        <input type="hidden" id="MaChucVuCu" name="MaChucVuCu" value="">
+                        <input type="hidden" id="MaNhanSu" name="MaNhanSu" value="">
                         <div class="form-group">
                             <label for="HoTen">Họ Và Tên</label>
                             <input type="text" class="form-control" name="HoTen" id="HoTen" required>
@@ -349,6 +350,7 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                             <label for="TenChucVu">Tên Chức Vụ</label>
                             <select id="tenchucvu" name="MaChucVuMoi" class="form-control">
                                 <?php 
+                                mysqli_data_seek($result_chucvu, 0);
             while($r = mysqli_fetch_assoc($result_chucvu)) {
                 echo '<option value="' . $r['MaChucVu'] . '">' . $r['TenChucVu'] . '</option>';
             }

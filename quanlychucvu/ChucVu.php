@@ -65,11 +65,11 @@ $i = 1;
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="./NguoiDung/index_NguoiDung.php">
+                <li><a href="../TaiKhoan/TaiKhoan_Index.php">
                         <i class="uil uil-user"></i>
                         <span class="link-name">Quản lý tài khoản</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../NhanSu/NhanSu_Index.php">
                         <i class="uil uil-table"></i>
                         <span class="link-name">Quản lý nhân sự</span>
                     </a></li>
@@ -100,7 +100,7 @@ $i = 1;
             </ul>
 
             <ul class="logout-mode">
-                <li><a href="./Login/DangXuat.php">
+                <li><a href="../Login/DangXuat.php">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
@@ -130,14 +130,15 @@ $i = 1;
                     <button class="uil uil-search" type="submit"></button>
                 </form>
             </div>
-            <img src="../Img/profile.jpg" alt="Avatar" style="margin-right: 50px;">
+            <img src="../Img/IMG_0190.JPG" alt="Avatar" style="margin-right: 50px;">
         </div>
         <div class="dash-content">
             <div class="container-fluid">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="w-100 text-center ">Danh Sách Chức Vụ</h1>
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalAdd"
-                        style="margin-right: 20px;">Thêm</button>
+                    <h1 class="w-100 text-center " style="margin-top: 15px;">Danh Sách Chức Vụ</h1>
+                    <button type="button" class="btn btn-info d-flex justify-content-center align-items-center"
+                        data-toggle="modal" data-target="#myModalAdd"
+                        style="margin-right: 20px;height: 35px;margin-top:5px;">Thêm</button>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">

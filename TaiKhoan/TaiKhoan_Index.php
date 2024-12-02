@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="../CSS/Admin_Style.css?v = <?php echo time(); ?>">
-     
+
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -17,14 +18,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Admin</title>
     <style>
-        * {
-            font-family: "Ubuntu", sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-    </style> 
+    * {
+        font-family: "Ubuntu", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    </style>
 </head>
+
 <body>
     <nav>
         <div class="logo-name">
@@ -37,52 +39,56 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="./NguoiDung/index_NguoiDung.php">
-                    <i class="uil uil-user"></i>
-                    <span class="link-name">Quản lý tài khoản</span>
-                </a></li>
+                <li><a href="#">
+                        <i class="uil uil-user"></i>
+                        <span class="link-name">Quản lý tài khoản</span>
+                    </a></li>
                 <li><a href="../NhanSu/NhanSu_Index.php">
-                    <i class="uil uil-table"></i>
-                    <span class="link-name">Quản lý nhân sự</span>
-                </a></li>
+                        <i class="uil uil-table"></i>
+                        <span class="link-name">Quản lý nhân sự</span>
+                    </a></li>
+                <li><a href="../Thongtincongviec/ThongTinCongViec.php">
+                        <i class="uil uil-book-reader"></i>
+                        <span class="link-name">Quản lý công việc</span>
+                    </a></li>
+                <li><a href="../quanlychucvu/ChucVu.php">
+                        <i class="uil uil-briefcase-alt"></i>
+                        <span class="link-name">Quản lý Chức Vụ</span>
+                    </a></li>
                 <li><a href="#">
-                    <i class="uil uil-book-reader"></i>
-                    <span class="link-name">Quản lý công việc</span>
-                </a></li>
+                        <i class="uil uil-file-info-alt"></i>
+                        <span class="link-name">Quản lý nghỉ phép</span>
+                    </a></li>
                 <li><a href="#">
-                    <i class="uil uil-file-info-alt"></i>
-                    <span class="link-name">Quản lý nghỉ phép</span>
-                </a></li>
+                        <i class="uil uil-subject"></i>
+                        <span class="link-name">Quản lý lương</span>
+                    </a></li>
                 <li><a href="#">
-                    <i class="uil uil-subject"></i>
-                    <span class="link-name">Quản lý lương</span>
-                </a></li>
+                        <i class="uil uil-book-open"></i>
+                        <span class="link-name">Lịch sử công tác</span>
+                    </a></li>
                 <li><a href="#">
-                    <i class="uil uil-book-open"></i>
-                    <span class="link-name">Lịch sử công tác</span>
-                </a></li>
-                <li><a href="#">
-                    <i class="uil uil-analytics"></i>
-                    <span class="link-name">Báo cáo và thống kê</span>
-                </a></li>
+                        <i class="uil uil-analytics"></i>
+                        <span class="link-name">Báo cáo và thống kê</span>
+                    </a></li>
             </ul>
-            
+
             <ul class="logout-mode">
                 <li><a href="../Login/DangXuat.php">
-                    <i class="uil uil-signout"></i>
-                    <span class="link-name">Đăng xuất</span>
-                </a></li>
+                        <i class="uil uil-signout"></i>
+                        <span class="link-name">Đăng xuất</span>
+                    </a></li>
 
                 <li class="mode">
                     <a href="#">
                         <i class="uil uil-moon"></i>
-                    <span class="link-name">Chế độ</span>
-                </a>
+                        <span class="link-name">Chế độ</span>
+                    </a>
 
-                <div class="mode-toggle">
-                  <span class="switch"></span>
-                </div>
-            </li>
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -95,8 +101,8 @@
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Tìm kiếm...">
             </div>
-            
-            <img src="../Img/profile.jpg" alt="Avatar" style="margin-right: 50px;">
+
+            <img src="../Img/IMG_0190.JPG" alt="Avatar" style="margin-right: 50px;">
         </div>
 
         <div class="dash-content" style="margin-top: 20px;">
@@ -144,58 +150,53 @@
 
                             while ($row = mysqli_fetch_assoc($result)) {
                                 ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($row["TenDangNhap"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["HoTen"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["Email"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["PhanQuyen"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["TrangThaiTaiKhoan"]); ?></td>
-                                    <td>
-                                        <button 
-                                            type="button" 
-                                            class="btn btn-info btn-detail"
-                                            data-MaNguoiDung="<?php echo $row["MaNguoiDung"]; ?>"
-                                            data-TenDangNhap="<?php echo htmlspecialchars($row["TenDangNhap"]); ?>"
-                                            data-HoTen="<?php echo htmlspecialchars($row["HoTen"]); ?>"
-                                            data-Email="<?php echo htmlspecialchars($row["Email"]); ?>"
-                                            data-SoDienThoai="<?php echo htmlspecialchars($row["SoDienThoai"]); ?>"
-                                            data-DiaChi="<?php echo htmlspecialchars($row["DiaChi"]); ?>"
-                                            data-PhanQuyen="<?php echo htmlspecialchars($row["PhanQuyen"]); ?>"
-                                            data-TrangThai="<?php echo htmlspecialchars($row["TrangThaiTaiKhoan"]); ?>"
-                                            data-MaDinhDanh="<?php echo htmlspecialchars($row["MaDinhDanh"]); ?>"
-                                            data-toggle="modal" 
-                                            data-target="#detailModal">
-                                            Xem Chi Tiết
-                                        </button>
-                                        <button 
-                                            type="button" 
-                                            class="btn btn-success btn-update" 
-                                            data-MaNguoiDung="<?php echo $row["MaNguoiDung"]; ?>"
-                                            data-TenDangNhap="<?php echo htmlspecialchars($row["TenDangNhap"]); ?>"
-                                            data-HoTen="<?php echo htmlspecialchars($row["HoTen"]); ?>"
-                                            data-Email="<?php echo htmlspecialchars($row["Email"]); ?>"
-                                            data-SoDienThoai="<?php echo htmlspecialchars($row["SoDienThoai"]); ?>"
-                                            data-DiaChi="<?php echo htmlspecialchars($row["DiaChi"]); ?>"
-                                            data-PhanQuyen="<?php echo htmlspecialchars($row["PhanQuyen"]); ?>"
-                                            data-TrangThai="<?php echo htmlspecialchars($row["TrangThaiTaiKhoan"]); ?>"
-                                            data-MaDinhDanh="<?php echo htmlspecialchars($row["MaDinhDanh"]); ?>"
-                                            data-toggle="modal" 
-                                            data-target="#updateModal">
-                                            Cập Nhật
-                                        </button>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row["TenDangNhap"]); ?></td>
+                            <td><?php echo htmlspecialchars($row["HoTen"]); ?></td>
+                            <td><?php echo htmlspecialchars($row["Email"]); ?></td>
+                            <td><?php echo htmlspecialchars($row["PhanQuyen"]); ?></td>
+                            <td><?php echo htmlspecialchars($row["TrangThaiTaiKhoan"]); ?></td>
+                            <td>
+                                <button type="button" class="btn btn-info btn-detail"
+                                    data-MaNguoiDung="<?php echo $row["MaNguoiDung"]; ?>"
+                                    data-TenDangNhap="<?php echo htmlspecialchars($row["TenDangNhap"]); ?>"
+                                    data-HoTen="<?php echo htmlspecialchars($row["HoTen"]); ?>"
+                                    data-Email="<?php echo htmlspecialchars($row["Email"]); ?>"
+                                    data-SoDienThoai="<?php echo htmlspecialchars($row["SoDienThoai"]); ?>"
+                                    data-DiaChi="<?php echo htmlspecialchars($row["DiaChi"]); ?>"
+                                    data-PhanQuyen="<?php echo htmlspecialchars($row["PhanQuyen"]); ?>"
+                                    data-TrangThai="<?php echo htmlspecialchars($row["TrangThaiTaiKhoan"]); ?>"
+                                    data-MaDinhDanh="<?php echo htmlspecialchars($row["MaDinhDanh"]); ?>"
+                                    data-toggle="modal" data-target="#detailModal">
+                                    Xem Chi Tiết
+                                </button>
+                                <button type="button" class="btn btn-success btn-update"
+                                    data-MaNguoiDung="<?php echo $row["MaNguoiDung"]; ?>"
+                                    data-TenDangNhap="<?php echo htmlspecialchars($row["TenDangNhap"]); ?>"
+                                    data-HoTen="<?php echo htmlspecialchars($row["HoTen"]); ?>"
+                                    data-Email="<?php echo htmlspecialchars($row["Email"]); ?>"
+                                    data-SoDienThoai="<?php echo htmlspecialchars($row["SoDienThoai"]); ?>"
+                                    data-DiaChi="<?php echo htmlspecialchars($row["DiaChi"]); ?>"
+                                    data-PhanQuyen="<?php echo htmlspecialchars($row["PhanQuyen"]); ?>"
+                                    data-TrangThai="<?php echo htmlspecialchars($row["TrangThaiTaiKhoan"]); ?>"
+                                    data-MaDinhDanh="<?php echo htmlspecialchars($row["MaDinhDanh"]); ?>"
+                                    data-toggle="modal" data-target="#updateModal">
+                                    Cập Nhật
+                                </button>
 
-                                        <a onclick="return confirm('Bạn có muốn xóa tài khoản này không?')" 
-                                        href="TaiKhoan_Delete.php?MaNguoiDung=<?php echo $row["MaNguoiDung"]; ?>" 
-                                        class="btn btn-danger">
-                                            Xóa
-                                        </a>
-                                    </td>
-                                </tr>
-                                <?php
+                                <a onclick="return confirm('Bạn có muốn xóa tài khoản này không?')"
+                                    href="TaiKhoan_Delete.php?MaNguoiDung=<?php echo $row["MaNguoiDung"]; ?>"
+                                    class="btn btn-danger">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+                        <?php
                             }
                         ?>
                         <tr>
-                            <td colspan="9"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm</button></td>
+                            <td colspan="9"><button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#myModal">Thêm</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -203,7 +204,8 @@
         </div>
 
         <!-- Modal chi tiết -->
-        <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+        <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -230,33 +232,33 @@
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // Xử lý sự kiện click vào nút "Xem Chi Tiết"
-                const detailButtons = document.querySelectorAll(".btn-detail");
-                detailButtons.forEach(button => {
-                    button.addEventListener("click", function () {
-                        // Lấy dữ liệu từ thuộc tính data-*
-                        const tenDangNhap = this.getAttribute("data-TenDangNhap");
-                        const hoTen = this.getAttribute("data-HoTen");
-                        const email = this.getAttribute("data-Email");
-                        const soDienThoai = this.getAttribute("data-SoDienThoai");
-                        const diaChi = this.getAttribute("data-DiaChi");
-                        const PhanQuyen = this.getAttribute("data-PhanQuyen");
-                        const trangThai = this.getAttribute("data-TrangThai");
-                        const maDinhDanh = this.getAttribute("data-MaDinhDanh");
+        document.addEventListener("DOMContentLoaded", function() {
+            // Xử lý sự kiện click vào nút "Xem Chi Tiết"
+            const detailButtons = document.querySelectorAll(".btn-detail");
+            detailButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    // Lấy dữ liệu từ thuộc tính data-*
+                    const tenDangNhap = this.getAttribute("data-TenDangNhap");
+                    const hoTen = this.getAttribute("data-HoTen");
+                    const email = this.getAttribute("data-Email");
+                    const soDienThoai = this.getAttribute("data-SoDienThoai");
+                    const diaChi = this.getAttribute("data-DiaChi");
+                    const PhanQuyen = this.getAttribute("data-PhanQuyen");
+                    const trangThai = this.getAttribute("data-TrangThai");
+                    const maDinhDanh = this.getAttribute("data-MaDinhDanh");
 
-                        // Cập nhật thông tin vào modal
-                        document.getElementById("detailTenDangNhap").textContent = tenDangNhap;
-                        document.getElementById("detailHoTen").textContent = hoTen;
-                        document.getElementById("detailEmail").textContent = email;
-                        document.getElementById("detailSoDienThoai").textContent = soDienThoai;
-                        document.getElementById("detailDiaChi").textContent = diaChi;
-                        document.getElementById("detailPhanQuyen").textContent = PhanQuyen;
-                        document.getElementById("detailTrangThai").textContent = trangThai;
-                        document.getElementById("detailMaDinhDanh").textContent = maDinhDanh;
-                    });
+                    // Cập nhật thông tin vào modal
+                    document.getElementById("detailTenDangNhap").textContent = tenDangNhap;
+                    document.getElementById("detailHoTen").textContent = hoTen;
+                    document.getElementById("detailEmail").textContent = email;
+                    document.getElementById("detailSoDienThoai").textContent = soDienThoai;
+                    document.getElementById("detailDiaChi").textContent = diaChi;
+                    document.getElementById("detailPhanQuyen").textContent = PhanQuyen;
+                    document.getElementById("detailTrangThai").textContent = trangThai;
+                    document.getElementById("detailMaDinhDanh").textContent = maDinhDanh;
                 });
             });
+        });
         </script>
 
 
@@ -269,7 +271,8 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title" style="font-family: 'Times New Roman', Times, serif;">Thêm tài khoản</h4>
+                        <h4 class="modal-title" style="font-family: 'Times New Roman', Times, serif;">Thêm tài khoản
+                        </h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
@@ -288,7 +291,8 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="MaDinhDanh" name="MaDinhDanh" required>
                                     <div class="input-group-append">
-                                        <button type="button" class="btn btn-primary" id="checkMaDinhDanh">Kiểm tra</button>
+                                        <button type="button" class="btn btn-primary" id="checkMaDinhDanh">Kiểm
+                                            tra</button>
                                     </div>
                                 </div>
                             </div>
@@ -325,18 +329,18 @@
                 </div>
             </div>
         </div>
-    
+
         <script>
-            // AJAX kiểm tra mã định danh
-            document.getElementById("checkMaDinhDanh").addEventListener("click", function () {
-                const maDinhDanh = document.getElementById("MaDinhDanh").value;
+        // AJAX kiểm tra mã định danh
+        document.getElementById("checkMaDinhDanh").addEventListener("click", function() {
+            const maDinhDanh = document.getElementById("MaDinhDanh").value;
 
-                if (!maDinhDanh.trim()) {
-                    alert("Vui lòng nhập mã định danh.");
-                    return;
-                }
+            if (!maDinhDanh.trim()) {
+                alert("Vui lòng nhập mã định danh.");
+                return;
+            }
 
-                fetch("check_ma_dinh_danh.php", {
+            fetch("check_ma_dinh_danh.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
@@ -362,7 +366,7 @@
                     console.error("Lỗi:", error);
                     alert("Có lỗi xảy ra khi kiểm tra mã định danh.");
                 });
-            });
+        });
         </script>
 
 
@@ -372,7 +376,8 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title" style="font-family: 'Times New Roman', Times, serif;">Sửa Thông tin tài khoản</h4>
+                        <h4 class="modal-title" style="font-family: 'Times New Roman', Times, serif;">Sửa Thông tin tài
+                            khoản</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
@@ -385,7 +390,8 @@
                             <!-- Tên đăng nhập -->
                             <div class="form-group">
                                 <label for="update_TenDangNhap">Tên đăng nhập</label>
-                                <input type="text" class="form-control" id="update_TenDangNhap" name="TenDangNhap" readonly>
+                                <input type="text" class="form-control" id="update_TenDangNhap" name="TenDangNhap"
+                                    readonly>
                             </div>
 
                             <!-- Họ và tên -->
@@ -403,7 +409,8 @@
                             <!-- Số điện thoại -->
                             <div class="form-group">
                                 <label for="update_SoDienThoai">Số điện thoại</label>
-                                <input type="text" class="form-control" id="update_SoDienThoai" name="SoDienThoai" readonly>
+                                <input type="text" class="form-control" id="update_SoDienThoai" name="SoDienThoai"
+                                    readonly>
                             </div>
 
                             <!-- Địa chỉ -->
@@ -439,7 +446,8 @@
 
                             <!-- Buttons -->
                             <button type="submit" class="btn btn-success">Cập nhật</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-left: 275px;">Đóng</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"
+                                style="margin-left: 275px;">Đóng</button>
                         </form>
                     </div>
                 </div>
@@ -447,12 +455,12 @@
         </div>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Lấy tất cả các nút "Cập Nhật"
             const updateButtons = document.querySelectorAll('.btn-update');
 
             updateButtons.forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     // Lấy giá trị từ các thuộc tính data-
                     const maNguoiDung = this.getAttribute('data-MaNguoiDung');
                     const tenDangNhap = this.getAttribute('data-TenDangNhap');
@@ -483,4 +491,5 @@
 
     <script src="../JS/Admin_Script.js?v = <?php echo time(); ?>"></script>
 </body>
+
 </html>

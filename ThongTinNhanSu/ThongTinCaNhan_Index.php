@@ -66,22 +66,24 @@ if ($resultNguoiDung->num_rows > 0) {
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="../CSS/Admin_Style.css">
-     
+
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <title>Admin</title> 
+    <title>Admin</title>
 </head>
+
 <body>
     <nav>
         <div class="logo-name">
@@ -93,30 +95,57 @@ if ($resultNguoiDung->num_rows > 0) {
         </div>
 
         <div class="menu-items">
-            <ul class="nav-links" style="margin-left: -32px;">
-            <li><a href="#">
-                    <i class="uil uil-user"></i>
-                    <span class="link-name">Thông tin cá nhân</span>
-                </a></li>
+            <ul class="nav-links">
+                <li><a href="../TaiKhoan/TaiKhoan_Index.php">
+                        <i class="uil uil-user"></i>
+                        <span class="link-name">Quản lý tài khoản</span>
+                    </a></li>
                 <li><a href="#">
-                    <i class="uil uil-table"></i>
-                    <span class="link-name">Lịch sử công tác</span>
-                </a></li>
+                        <i class="uil uil-table"></i>
+                        <span class="link-name">Quản lý nhân sự</span>
+                    </a></li>
+                <li><a href="../Thongtincongviec/ThongTinCongViec.php">
+                        <i class="uil uil-book-reader"></i>
+                        <span class="link-name">Quản lý công việc</span>
+                    </a></li>
+                <li><a href="../quanlychucvu/ChucVu.php">
+                        <i class="uil uil-briefcase-alt"></i>
+                        <span class="link-name">Quản lý Chức Vụ</span>
+                    </a></li>
                 <li><a href="#">
-                    <i class="uil uil-book-reader"></i>
-                    <span class="link-name">Nghỉ phép</span>
-                </a></li>
+                        <i class="uil uil-file-info-alt"></i>
+                        <span class="link-name">Quản lý nghỉ phép</span>
+                    </a></li>
                 <li><a href="#">
-                    <i class="uil uil-file-info-alt"></i>
-                    <span class="link-name">Lương</span>
-                </a></li>
+                        <i class="uil uil-subject"></i>
+                        <span class="link-name">Quản lý lương</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="uil uil-book-open"></i>
+                        <span class="link-name">Lịch sử công tác</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="uil uil-analytics"></i>
+                        <span class="link-name">Báo cáo và thống kê</span>
+                    </a></li>
             </ul>
-            
-            <ul class="logout-mode" style="margin: 10px 0 0 -32px;">
+
+            <ul class="logout-mode">
                 <li><a href="../Login/DangXuat.php">
-                    <i class="uil uil-signout"></i>
-                    <span class="link-name">Đăng xuất</span>
-                </a></li>
+                        <i class="uil uil-signout"></i>
+                        <span class="link-name">Đăng xuất</span>
+                    </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Chế độ</span>
+                    </a>
+
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -133,7 +162,7 @@ if ($resultNguoiDung->num_rows > 0) {
             <img src="../Img/AVT.jpg" alt="Avatar" style="margin-right: 50px;">
 
 
-            
+
         </div>
 
         <div class="dash-content">
@@ -143,10 +172,13 @@ if ($resultNguoiDung->num_rows > 0) {
                     <div class="col-md-4 text-center">
                         <div class="card shadow">
                             <div class="card-body">
-                                <img src="../Img/AVT.jpg" class="rounded-circle img-thumbnail mb-3" alt="Profile Image" style="width: 5cm; height: 5cm;">
+                                <img src="../Img/AVT.jpg" class="rounded-circle img-thumbnail mb-3" alt="Profile Image"
+                                    style="width: 5cm; height: 5cm;">
                                 <h4 class="card-title"><?= htmlspecialchars($dataNhanSu['HoTen']) ?></h4>
-                                <p class="text-muted">Mã Định Danh: <strong><?= htmlspecialchars($dataNhanSu['MaDinhDanh']) ?></strong></p>
-                                <p class="badge <?= $dataNhanSu['TinhTrangLamViec'] == 'Đang làm' ? 'bg-success' : 'bg-danger' ?>">
+                                <p class="text-muted">Mã Định Danh:
+                                    <strong><?= htmlspecialchars($dataNhanSu['MaDinhDanh']) ?></strong></p>
+                                <p
+                                    class="badge <?= $dataNhanSu['TinhTrangLamViec'] == 'Đang làm' ? 'bg-success' : 'bg-danger' ?>">
                                     <?= htmlspecialchars($dataNhanSu['TinhTrangLamViec']) ?>
                                 </p>
                             </div>
@@ -164,11 +196,13 @@ if ($resultNguoiDung->num_rows > 0) {
                                 <p><strong>Giới Tính:</strong> <?= htmlspecialchars($dataNhanSu['GioiTinh']) ?></p>
                                 <p><strong>Ngày Sinh:</strong> <?= htmlspecialchars($dataNhanSu['NgaySinh']) ?></p>
                                 <p><strong>CMND/CCCD:</strong> <?= htmlspecialchars($dataNhanSu['CMND_CCCD']) ?></p>
-                                <p><strong>Số Điện Thoại:</strong> <?= htmlspecialchars($dataNhanSu['SoDienThoai']) ?></p>
+                                <p><strong>Số Điện Thoại:</strong> <?= htmlspecialchars($dataNhanSu['SoDienThoai']) ?>
+                                </p>
                                 <p><strong>Email:</strong> <?= htmlspecialchars($dataNhanSu['Email']) ?></p>
                                 <p><strong>Địa Chỉ:</strong> <?= htmlspecialchars($dataNhanSu['DiaChi']) ?></p>
                                 <p><strong>Ngày Vào Làm:</strong> <?= htmlspecialchars($dataNhanSu['NgayVaoLam']) ?></p>
-                                <p><strong>Loại Hợp Đồng:</strong> <?= htmlspecialchars($dataNhanSu['LoaiHopDong']) ?></p>
+                                <p><strong>Loại Hợp Đồng:</strong> <?= htmlspecialchars($dataNhanSu['LoaiHopDong']) ?>
+                                </p>
                                 <p><strong>Chức Vụ:</strong> <?= htmlspecialchars($tenChucVu) ?></p>
                             </div>
                         </div>
@@ -182,16 +216,20 @@ if ($resultNguoiDung->num_rows > 0) {
                                 <p><strong>Tên Đăng Nhập:</strong> <?= htmlspecialchars($data['TenDangNhap']) ?></p>
                                 <p><strong>Vai Trò:</strong> <?= htmlspecialchars($data['PhanQuyen']) ?></p>
                                 <p><strong>Trạng Thái Tài Khoản:</strong>
-                                    <span class="badge <?= $data['TrangThaiTaiKhoan'] == 'Hoạt động' ? 'bg-success' : 'bg-danger' ?>">
+                                    <span
+                                        class="badge <?= $data['TrangThaiTaiKhoan'] == 'Hoạt động' ? 'bg-success' : 'bg-danger' ?>">
                                         <?= htmlspecialchars($data['TrangThaiTaiKhoan']) ?>
                                     </span>
                                 </p>
-                                <p><strong>Lần Đăng Nhập Cuối:</strong> <?= htmlspecialchars($data['LanDangNhapCuoi']) ?></p>
+                                <p><strong>Lần Đăng Nhập Cuối:</strong>
+                                    <?= htmlspecialchars($data['LanDangNhapCuoi']) ?></p>
                                 <!-- Nút đổi mật khẩu và khóa tài khoản -->
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#changePasswordModal">
                                     Đổi Mật Khẩu
                                 </button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#confirmModal">
                                     Khóa Tài Khoản
                                 </button>
                             </div>
@@ -203,7 +241,8 @@ if ($resultNguoiDung->num_rows > 0) {
 
 
         <!-- Modal Đổi Mật Khẩu -->
-        <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+        <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content shadow-lg border-0 rounded-3">
                     <div class="modal-header bg-primary text-white">
@@ -214,18 +253,22 @@ if ($resultNguoiDung->num_rows > 0) {
                         <form action="DoiMatKhau.php" method="POST">
                             <div class="mb-4">
                                 <label for="MatKhauCu" class="form-label">Mật khẩu cũ</label>
-                                <input type="password" class="form-control shadow-sm" id="MatKhauCu" name="MatKhauCu" placeholder="Nhập mật khẩu cũ" required>
+                                <input type="password" class="form-control shadow-sm" id="MatKhauCu" name="MatKhauCu"
+                                    placeholder="Nhập mật khẩu cũ" required>
                             </div>
                             <div class="mb-4">
                                 <label for="MatKhauMoi" class="form-label">Mật khẩu mới</label>
-                                <input type="password" class="form-control shadow-sm" id="MatKhauMoi" name="MatKhauMoi" placeholder="Nhập mật khẩu mới" required>
+                                <input type="password" class="form-control shadow-sm" id="MatKhauMoi" name="MatKhauMoi"
+                                    placeholder="Nhập mật khẩu mới" required>
                             </div>
                             <div class="mb-4">
                                 <label for="XacNhanMatKhau" class="form-label">Xác nhận mật khẩu mới</label>
-                                <input type="password" class="form-control shadow-sm" id="XacNhanMatKhau" name="XacNhanMatKhau" placeholder="Xác nhận mật khẩu mới" required>
+                                <input type="password" class="form-control shadow-sm" id="XacNhanMatKhau"
+                                    name="XacNhanMatKhau" placeholder="Xác nhận mật khẩu mới" required>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Hủy</button>
+                                <button type="button" class="btn btn-secondary me-2"
+                                    data-bs-dismiss="modal">Hủy</button>
                                 <button type="submit" class="btn btn-primary">Đổi Mật Khẩu</button>
                             </div>
                         </form>
@@ -258,4 +301,5 @@ if ($resultNguoiDung->num_rows > 0) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../JS/Admin_Script.js"></script>
 </body>
+
 </html>
