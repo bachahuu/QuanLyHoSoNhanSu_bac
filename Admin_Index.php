@@ -26,11 +26,11 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="./NguoiDung/index_NguoiDung.php">
+                <li><a href="./TaiKhoan/TaiKhoan_Index.php">
                     <i class="uil uil-user"></i>
                     <span class="link-name">Quản lý tài khoản</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="./NhanSu/NhanSu_Index.php">
                     <i class="uil uil-table"></i>
                     <span class="link-name">Quản lý nhân sự</span>
                 </a></li>

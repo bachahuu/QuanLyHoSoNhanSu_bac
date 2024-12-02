@@ -11,7 +11,7 @@
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
+    
     <title>Admin</title> 
 </head>
 <body>
@@ -26,7 +26,7 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-            <li><a href="./NguoiDung/index_NguoiDung.php">
+            <li><a href="./ThongTinNhanSu/ThongTinCaNhan_Index.php">
                     <i class="uil uil-user"></i>
                     <span class="link-name">Thông tin cá nhân</span>
                 </a></li>
@@ -47,24 +47,8 @@
             <ul class="logout-mode">
                 <li><a href="./Login/DangXuat.php">
                     <i class="uil uil-signout"></i>
-                    <span class="link-name">Đổi mật khẩu</span>
-                </a></li>
-
-                <li><a href="./Login/DangXuat.php">
-                    <i class="uil uil-signout"></i>
                     <span class="link-name">Đăng xuất</span>
                 </a></li>
-
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                    <span class="link-name">Chế độ</span>
-                </a>
-
-                <div class="mode-toggle">
-                  <span class="switch"></span>
-                </div>
-            </li>
             </ul>
         </div>
     </nav>
@@ -89,6 +73,6 @@
         </div>
     </section>
 
-    <script src="./JS/Admin_Script.js?v = <?php echo time(); ?>"></script>
+    <script src="../JS/Admin_Script.js?v = <?php echo time(); ?>"></script>
 </body>
 </html>

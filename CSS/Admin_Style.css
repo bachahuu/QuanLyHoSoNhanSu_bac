@@ -360,6 +360,87 @@ nav.close ~ .dashboard .top{
     color: var(--text-color);
 }
 
+/* Tùy chỉnh giao diện modal với màu cam pha trắng */
+.modal-content {
+    border-radius: 12px;
+    background: linear-gradient(to bottom, #ff7f00 0%, #fff 200%); /* Cam pha trắng */
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background: linear-gradient(to right, #ff7f00 0%, #fff 200%); /* Cam pha trắng */
+    color: white; /* Màu chữ trắng */
+    border-bottom: none;
+    padding-bottom: 15px;
+}
+
+/* Tùy chỉnh nút đóng của modal */
+.modal-header .btn-close {
+    background-color: white; /* Nút đóng với nền trắng */
+    border: none;
+}
+
+.modal-body {
+    padding-top: 15px;
+    background-color: white; /* Nền dưới của modal */
+}
+
+.form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #2575fc;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Shadow effect when the modal is active */
+.modal.fade .modal-dialog {
+    transform: translate(0, -50px);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    transform: translate(0, 0);
+}
+
+/* Hover effect for inputs */
+.form-control:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+}
+
+
+
 @media (max-width: 1000px) {
     nav{
         width: 73px;
