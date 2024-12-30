@@ -137,10 +137,10 @@ if (isset($_SESSION['TenDangNhap'])) {
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="http://utt.edu.vn/home/images/stories/logo-utt-border.png" alt="">
+                <img src="../Img/vlogo.png" alt="" style="width: 190px; padding-left:23px;">
             </div>
 
-            <span class="logo_name" style="color: orange;">UTT SCHOOL</span>
+            <!-- <span class="logo_name" style="color: orange;">Cao đẳng Đại Việt</span> -->
         </div>
 
         <div class="menu-items">
@@ -157,10 +157,10 @@ if (isset($_SESSION['TenDangNhap'])) {
                         <i class="uil uil-book-reader"></i>
                         <span class="link-name">Nghỉ phép</span>
                     </a></li>
-                <li><a href="#">
+                <!-- <li><a href="#">
                         <i class="uil uil-file-info-alt"></i>
                         <span class="link-name">Lương</span>
-                    </a></li>
+                    </a></li> -->
             </ul>
 
             <ul class="logout-mode">

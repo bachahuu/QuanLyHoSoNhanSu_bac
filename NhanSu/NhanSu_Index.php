@@ -31,10 +31,10 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="http://utt.edu.vn/home/images/stories/logo-utt-border.png" alt="">
+                <img src="../Img/vlogo.png" alt="" style="width: 190px; padding-left:23px;">
             </div>
 
-            <span class="logo_name" style="color: orange;">UTT SCHOOL</span>
+            <!-- <span class="logo_name" style="color: orange;">UTT SCHOOL</span> -->
         </div>
 
         <div class="menu-items">
@@ -59,11 +59,11 @@
                         <i class="uil uil-file-info-alt"></i>
                         <span class="link-name">Quản lý nghỉ phép</span>
                     </a></li>
-                <li><a href="../Luong/view_luong.php">
+                <li><a href="../Luong/Luong_Index.php">
                         <i class="uil uil-subject"></i>
                         <span class="link-name">Quản lý lương</span>
                     </a></li>
-                <li><a href="../Lichsucongtac/lichsucongtac_user.php">
+                <li><a href="../Lichsucongtac/lichsucongtac_Index.php">
                         <i class="uil uil-book-open"></i>
                         <span class="link-name">Lịch sử công tác</span>
                     </a></li>

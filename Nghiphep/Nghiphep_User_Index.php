@@ -149,10 +149,10 @@ if (isset($_SESSION['TenDangNhap'])) {
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="http://utt.edu.vn/home/images/stories/logo-utt-border.png" alt="">
+                <img src="../Img/vlogo.png" alt="" style="width: 190px; padding-left:23px;">
             </div>
 
-            <span class="logo_name" style="color: orange;">UTT SCHOOL</span>
+            <!-- <span class="logo_name" style="color: orange;">UTT SCHOOL</span> -->
         </div>
 
         <div class="menu-items">
@@ -169,10 +169,10 @@ if (isset($_SESSION['TenDangNhap'])) {
                         <i class="uil uil-book-reader"></i>
                         <span class="link-name">Nghỉ phép</span>
                     </a></li>
-                <li><a href="#">
+                <!-- <li><a href="#">
                         <i class="uil uil-file-info-alt"></i>
                         <span class="link-name">Lương</span>
-                    </a></li>
+                    </a></li> -->
             </ul>
 
             <ul class="logout-mode">
@@ -227,11 +227,11 @@ if (isset($_SESSION['TenDangNhap'])) {
                             <div class="timeline-content">
                                 <h5 class="fw-bold"><?php echo htmlspecialchars($row['TrangThai']); ?></h5>
                                 <small class="text-secondary">
-                                    Ngày thay đổi: <span
+                                    Ngày bắt đầu: <span
                                         class="fw-bold"><?php echo htmlspecialchars($row['NgayBatDau']); ?></span>
                                 </small></p>
                                 <small class="text-secondary">
-                                    Ngày thay đổi: <span
+                                    Ngày kết thúc : <span
                                         class="fw-bold"><?php echo htmlspecialchars($row['NgayKetThuc']); ?></span>
                                 </small>
                                 <p class="mb-1 text-muted"><?php echo htmlspecialchars($row['LyDo']); ?></p>
@@ -254,7 +254,7 @@ if (isset($_SESSION['TenDangNhap'])) {
                                     Thêm đơn nghỉ phép</h1>
                             </div>
                             <div class="modal-body">
-                                <form action="./Add_lichsucongtac.php" method="POST">
+                                <form action="Add_Nghiphep.php" method="POST">
                                     <input type="hidden" name="MaNhanSu" value="<?php echo $maNhanSu; ?>">
                                     <?php
                 $maNhanSu = isset($_GET['MaNhanSu']) ? $_GET['MaNhanSu'] : '';
@@ -280,13 +280,11 @@ if (isset($_SESSION['TenDangNhap'])) {
                                     </div>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Ngày bắt đầu:</label>
-                                        <input type="date" id="ThoiGianBatDau" class="form-control"
-                                            name="ThoiGianBatDau">
+                                        <input type="date" id="NgayBatDau" class="form-control" name="NgayBatDau">
                                     </div>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Ngày kết thúc:</label>
-                                        <input type="date" id="ThoiGianKetThuc" class="form-control"
-                                            name="ThoiGianKetThuc">
+                                        <input type="date" id="NgayKetThuc" class="form-control" name="NgayKetThuc">
                                     </div>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Lý do:</label>

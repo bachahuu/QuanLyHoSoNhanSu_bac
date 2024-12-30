@@ -1,12 +1,37 @@
 <?php
+// Bắt đầu session
+session_start();
 // Kết nối với cơ sở dữ liệu
 require_once '../Connect.php';
 
+// Kiểm tra nếu MaNguoiDung tồn tại trong session
+if (isset($_SESSION['MaNguoiDung'])) {
+    $maNguoiDung = $_SESSION['MaNguoiDung'];
+    // Truy vấn SQL trực tiếp với MySQLi
+      $query = "SELECT MaNhanSu FROM nguoidung WHERE MaNguoiDung = '$maNguoiDung'";
+      $result_MaNhanSu = mysqli_query($conn, $query);
+       // Kiểm tra kết quả
+    if ($result_MaNhanSu && mysqli_num_rows($result_MaNhanSu) > 0) {
+        // Lấy kết quả và lưu vào biến $maNhanSu
+        $row = mysqli_fetch_assoc($result_MaNhanSu);
+        $maNhanSu = $row['MaNhanSu']; // Lưu MaNhanSu vào biến
+
+    } else {
+        echo "Không tìm thấy mã nhân sự.";
+    }
+
+    // Giải phóng bộ nhớ kết quả
+    if ($result_MaNhanSu) {
+        mysqli_free_result($result_MaNhanSu);
+    }
+} else {
+    echo "Không có mã người dùng trong session.";
+}
 // Lấy mã lương từ URL (thông qua phương thức GET)
-$maLuong = $_GET['id']; // id là tham số gửi từ URL
+//$maLuong = $_GET['id']; // id là tham số gửi từ URL
 
 // Truy vấn để lấy chi tiết của lương theo mã lương
-$sql = "SELECT * FROM luong JOIN nhansu ON nhansu.MaNhanSu = luong.MaNhanSu WHERE MaLuong = '$maLuong'";
+$sql = "SELECT * FROM luong JOIN nhansu ON nhansu.MaNhanSu = luong.MaNhanSu WHERE luong.MaNhanSu = '$maNhanSu'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 

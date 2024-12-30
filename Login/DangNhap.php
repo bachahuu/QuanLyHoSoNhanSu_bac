@@ -1,5 +1,5 @@
 <?php
-require_once '../connect.php';
+require_once '../Connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lấy dữ liệu từ form và làm sạch
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 echo "<script>
                         alert('Đăng nhập thành công.');
-                        window.location.href = '../NhanSu_Index.php';
+                        window.location.href = '../ThongTinNhanSu/ThongTinCaNhan_Index.php';
                     </script>";
             }
         } else {

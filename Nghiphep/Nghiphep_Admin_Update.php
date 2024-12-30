@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_stmt_bind_param($stmt, 'sss', $trangThai, $maNhanSu, $ngayBatDau);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "<script>alert('Cập nhật trạng thái thành công!'); window.location.href = 'Nghiphep_Index.php';</script>";
+        echo "<script>alert('Cập nhật trạng thái thành công!'); window.location.href = 'Nghiphep_Admin_Index.php';</script>";
     } else {
-        echo "<script>alert('Có lỗi xảy ra: " . mysqli_error($conn) . "'); window.location.href = 'Nghiphep_Index.php';</script>";
+        echo "<script>alert('Có lỗi xảy ra: " . mysqli_error($conn) . "'); window.location.href = 'Nghiphep_Admin_Index.php';</script>";
     }
 }
 ?>
