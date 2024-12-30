@@ -81,19 +81,19 @@ $i = 1;
                         <i class="uil uil-briefcase-alt"></i>
                         <span class="link-name">Quản lý Chức Vụ</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Nghiphep/Nghiphep_Admin_Index.php">
                         <i class="uil uil-file-info-alt"></i>
                         <span class="link-name">Quản lý nghỉ phép</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Luong/view_luong.php">
                         <i class="uil uil-subject"></i>
                         <span class="link-name">Quản lý lương</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Lichsucongtac/lichsucongtac_user.php">
                         <i class="uil uil-book-open"></i>
                         <span class="link-name">Lịch sử công tác</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../report/BaoCaoThongKe_Index.php">
                         <i class="uil uil-analytics"></i>
                         <span class="link-name">Báo cáo và thống kê</span>
                     </a></li>
@@ -175,7 +175,6 @@ $i = 1;
                                         Xóa
                                     </button>
                                 </td>
-
                             </tr>
                             <?php }
     } else { ?>

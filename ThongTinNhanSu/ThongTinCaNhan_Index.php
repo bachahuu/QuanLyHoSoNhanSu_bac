@@ -96,37 +96,21 @@ if ($resultNguoiDung->num_rows > 0) {
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="../TaiKhoan/TaiKhoan_Index.php">
+                <li><a href="#">
                         <i class="uil uil-user"></i>
-                        <span class="link-name">Quản lý tài khoản</span>
+                        <span class="link-name">Thông tin cá nhân</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Lichsucongtac/lichsucongtac_user.php">
                         <i class="uil uil-table"></i>
-                        <span class="link-name">Quản lý nhân sự</span>
-                    </a></li>
-                <li><a href="../Thongtincongviec/ThongTinCongViec.php">
-                        <i class="uil uil-book-reader"></i>
-                        <span class="link-name">Quản lý công việc</span>
-                    </a></li>
-                <li><a href="../quanlychucvu/ChucVu.php">
-                        <i class="uil uil-briefcase-alt"></i>
-                        <span class="link-name">Quản lý Chức Vụ</span>
-                    </a></li>
-                <li><a href="#">
-                        <i class="uil uil-file-info-alt"></i>
-                        <span class="link-name">Quản lý nghỉ phép</span>
-                    </a></li>
-                <li><a href="#">
-                        <i class="uil uil-subject"></i>
-                        <span class="link-name">Quản lý lương</span>
-                    </a></li>
-                <li><a href="#">
-                        <i class="uil uil-book-open"></i>
                         <span class="link-name">Lịch sử công tác</span>
                     </a></li>
-                <li><a href="#">
-                        <i class="uil uil-analytics"></i>
-                        <span class="link-name">Báo cáo và thống kê</span>
+                <li><a href="../Nghiphep/Nghiphep_User_Index.php">
+                        <i class="uil uil-book-reader"></i>
+                        <span class="link-name">Nghỉ phép</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="uil uil-file-info-alt"></i>
+                        <span class="link-name">Lương</span>
                     </a></li>
             </ul>
 
@@ -159,10 +143,11 @@ if ($resultNguoiDung->num_rows > 0) {
                 <input type="text" placeholder="Tìm kiếm...">
             </div>
 
+            <span style="margin-right: -220px; font-size: 18px; font-weight: bold;">
+                <?= htmlspecialchars($dataNhanSu['HoTen']) ?>
+            </span>
+
             <img src="../Img/AVT.jpg" alt="Avatar" style="margin-right: 50px;">
-
-
-
         </div>
 
         <div class="dash-content">
@@ -176,7 +161,8 @@ if ($resultNguoiDung->num_rows > 0) {
                                     style="width: 5cm; height: 5cm;">
                                 <h4 class="card-title"><?= htmlspecialchars($dataNhanSu['HoTen']) ?></h4>
                                 <p class="text-muted">Mã Định Danh:
-                                    <strong><?= htmlspecialchars($dataNhanSu['MaDinhDanh']) ?></strong></p>
+                                    <strong><?= htmlspecialchars($dataNhanSu['MaDinhDanh']) ?></strong>
+                                </p>
                                 <p
                                     class="badge <?= $dataNhanSu['TinhTrangLamViec'] == 'Đang làm' ? 'bg-success' : 'bg-danger' ?>">
                                     <?= htmlspecialchars($dataNhanSu['TinhTrangLamViec']) ?>
