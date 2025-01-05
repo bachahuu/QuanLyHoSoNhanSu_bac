@@ -234,7 +234,7 @@
         </div>
     </section>
 
-    <script src="./JS/Admin_Script.js?v = <?php echo time(); ?>"></script>
+    <script src="../JS/Admin_Script.js?v = <?php echo time(); ?>"></script>
 
 </body>
 

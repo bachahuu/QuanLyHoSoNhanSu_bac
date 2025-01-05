@@ -27,8 +27,6 @@
             <div class="logo-image">
                 <img src="../Img/vlogo.png" alt="" style="width: 190px; padding-left:23px;">
             </div>
-
-            <!-- <span class="logo_name" style="color: orange;">UTT SCHOOL</span> -->
         </div>
 
         <div class="menu-items">
@@ -94,12 +92,12 @@
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Tìm kiếm báo cáo...">
             </div>
-            <img src="./Img/profile.jpg" alt="Avatar" style="margin-right: 50px;">
+            <img src="../Img/IMG_0190.jpg" alt="Avatar" style="margin-right: 50px;">
         </div>
 
+        <!-- Form tạo báo cáo nhân sự -->
         <div class="container mt-4">
             <h3 class="text-center">Tạo Báo Cáo Nhân Sự</h3>
-            <!-- Tạo báo cáo -->
             <form action="create_report.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="LoaiBaoCao">Loại Báo Cáo:</label>
@@ -122,8 +120,23 @@
 
                 <button type="submit" class="btn btn-primary">Cập Nhật Báo Cáo</button>
             </form>
-            <!-- Danh sách báo cáo -->
-            <h4 class="mt-4">Danh Sách Báo Cáo</h4>
+        </div>
+
+        <!-- Form xuất báo cáo lương -->
+        <div class="container mt-4">
+            <h3 class="text-center">Xuất Báo Cáo Lương Tổng</h3>
+            <form action="export_total_salary.php" method="GET">
+                <div class="form-group">
+                    <label for="month">Chọn Tháng/Năm:</label>
+                    <input type="month" class="form-control" id="month" name="month" required>
+                </div>
+                <button type="submit" class="btn btn-success">Xuất Lương</button>
+            </form>
+        </div>
+
+        <!-- Danh sách báo cáo -->
+        <div class="container mt-4">
+            <h4>Danh Sách Báo Cáo</h4>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -136,32 +149,32 @@
                 </thead>
                 <tbody>
                     <?php
-        // Kết nối cơ sở dữ liệu
-        require_once '../Connect.php';
+                    // Kết nối cơ sở dữ liệu
+                    require_once '../Connect.php';
 
-        $sql = "SELECT * FROM baocaothongke ORDER BY NgayBaoCao DESC";
-        $result = mysqli_query($conn, $sql);
+                    $sql = "SELECT * FROM baocaothongke ORDER BY NgayBaoCao DESC";
+                    $result = mysqli_query($conn, $sql);
 
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>
-                    <td>{$row['MaBaoCao']}</td>
-                    <td>" . date("d/m/Y", strtotime($row['NgayBaoCao'])) . "</td>
-                    <td>{$row['LoaiBaoCao']}</td>
-                    <td>{$row['TrangThaiBaoCao']}</td>
-                    <td>
-                        <a href='view_report.php?id={$row['MaBaoCao']}' class='btn btn-info btn-sm'>Xem</a>
-                        <a href='export_excel_report.php?id={$row['MaBaoCao']}' class='btn btn-success btn-sm'>Xuất Excel</a>
-                        <a href='delete_report.php?id={$row['MaBaoCao']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Bạn có chắc chắn muốn xóa báo cáo này?\")'>Xóa</a>
-                    </td>
-                </tr>";
-        }
-        ?>
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>
+                                <td>{$row['MaBaoCao']}</td>
+                                <td>" . date("d/m/Y", strtotime($row['NgayBaoCao'])) . "</td>
+                                <td>{$row['LoaiBaoCao']}</td>
+                                <td>{$row['TrangThaiBaoCao']}</td>
+                                <td>
+                                    <a href='view_report.php?id={$row['MaBaoCao']}' class='btn btn-info btn-sm'>Xem</a>
+                                    <a href='export_excel_report.php?id={$row['MaBaoCao']}' class='btn btn-success btn-sm'>Xuất Excel</a>
+                                    <a href='delete_report.php?id={$row['MaBaoCao']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Bạn có chắc chắn muốn xóa báo cáo này?\")'>Xóa</a>
+                                </td>
+                            </tr>";
+                    }
+                    ?>
                 </tbody>
             </table>
-
+        </div>
     </section>
 
-    <script src="./JS/Admin_Script.js?v=<?php echo time(); ?>"></script>
+    <script src="../JS/Admin_Script.js?v=<?php echo time(); ?>"></script>
 </body>
 
 </html>

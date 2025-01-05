@@ -62,10 +62,10 @@ if (isset($_SESSION['MaNguoiDung'])) {
                         <i class="uil uil-book-reader"></i>
                         <span class="link-name">Nghỉ phép</span>
                     </a></li>
-                <!-- <li><a href="./Luong/view_luong.php">
+                <li><a href="./Luong/view_user.php">
                         <i class="uil uil-file-info-alt"></i>
                         <span class="link-name">Lương</span>
-                    </a></li> -->
+                    </a></li>
             </ul>
 
             <ul class="logout-mode">

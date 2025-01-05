@@ -167,12 +167,11 @@
                 <input type="text" placeholder="Tìm kiếm...">
             </div>
 
-            <img src="./Img/profile.jpg" alt="Avatar" style="margin-right: 50px;">
+            <img src="../Img/IMG_0190.jpg" alt="Avatar" style="margin-right: 50px;">
 
 
 
         </div>
-
 
         <!-- Bảng danh sách đơn nghỉ phép -->
         <div class="container">
@@ -216,7 +215,7 @@
                             <td><?php echo $r['SoNgayPhep']; ?></td>
                             <td>
                                 <form class="form-inline" method="POST" action="Nghiphep_Admin_Update.php">
-                                    <select class="form-control" name="TrangThai">
+                                    <select class="form-control" name="TrangThai" style="height: auto;">
                                         <option value="Đã duyệt"
                                             <?php echo $r['TrangThai'] == 'Đã duyệt' ? 'selected' : ''; ?>>Đã duyệt
                                         </option>
@@ -245,7 +244,7 @@
         </div>
     </section>
 
-    <script src="./JS/Admin_Script.js?v = <?php echo time(); ?>"></script>
+    <script src="../JS/Admin_Script.js?v = <?php echo time(); ?>"></script>
 
 </body>
 

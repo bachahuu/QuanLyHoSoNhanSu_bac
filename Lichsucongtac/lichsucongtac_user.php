@@ -157,10 +157,10 @@ if (isset($_SESSION['TenDangNhap'])) {
                         <i class="uil uil-book-reader"></i>
                         <span class="link-name">Nghỉ phép</span>
                     </a></li>
-                <!-- <li><a href="#">
+                <li><a href="../Luong/view_user.php">
                         <i class="uil uil-file-info-alt"></i>
                         <span class="link-name">Lương</span>
-                    </a></li> -->
+                    </a></li>
             </ul>
 
             <ul class="logout-mode">
@@ -230,7 +230,7 @@ if (isset($_SESSION['TenDangNhap'])) {
     </section>
 
 
-    <script src="./JS/Admin_Script.js?v = <?php echo time(); ?>"></script>
+    <script src="../JS/Admin_Script.js?v = <?php echo time(); ?>"></script>
 
 </body>
 
