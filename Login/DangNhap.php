@@ -41,11 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         alert('Đăng nhập thành công với vai trò Quản trị viên.');
                         window.location.href = '../Admin_Index.php';
                     </script>";
-            } elseif ($phanQuyen == 'Kế Toán') {
-                echo "<script>
-                        alert('Đăng nhập thành công với vai trò Kế Toán.');
-                        window.location.href = '../KeToan_Index.php';
-                    </script>";
             } else {
                 echo "<script>
                         alert('Đăng nhập thành công.');
