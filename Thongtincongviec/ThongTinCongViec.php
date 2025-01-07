@@ -64,10 +64,10 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="http://utt.edu.vn/home/images/stories/logo-utt-border.png" alt="">
+                <img src="../Img/vlogo.png" alt="" style="width: 190px; padding-left:23px;">
             </div>
 
-            <span class="logo_name" style="color: orange;">UTT SCHOOL</span>
+            <!-- <span class="logo_name" style="color: orange;">UTT SCHOOL</span> -->
         </div>
 
         <div class="menu-items">
@@ -80,7 +80,7 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                         <i class="uil uil-table"></i>
                         <span class="link-name">Quản lý nhân sự</span>
                     </a></li>
-                <li><a href="../Thongtincongviec/ThongTinCongViec.php">
+                <li><a href="#">
                         <i class="uil uil-book-reader"></i>
                         <span class="link-name">Quản lý công việc</span>
                     </a></li>
@@ -88,19 +88,19 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                         <i class="uil uil-briefcase-alt"></i>
                         <span class="link-name">Quản lý Chức Vụ</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Nghiphep/Nghiphep_Admin_Index.php">
                         <i class="uil uil-file-info-alt"></i>
                         <span class="link-name">Quản lý nghỉ phép</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Luong/Luong_Index.php">
                         <i class="uil uil-subject"></i>
                         <span class="link-name">Quản lý lương</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Lichsucongtac/lichsucongtac_Index.php">
                         <i class="uil uil-book-open"></i>
                         <span class="link-name">Lịch sử công tác</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../report/BaoCaoThongKe_Index.php">
                         <i class="uil uil-analytics"></i>
                         <span class="link-name">Báo cáo và thống kê</span>
                     </a></li>

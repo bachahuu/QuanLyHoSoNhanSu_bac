@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2024 lúc 04:57 PM
+-- Thời gian đã tạo: Th12 29, 2024 lúc 04:10 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -112,26 +112,26 @@ INSERT INTO `congviec` (`MaCongViec`, `MaNhanSu`, `MaChucVu`, `KhoaPhongBan`, `H
 CREATE TABLE `lichsucongtac` (
   `MaLichSu` int(11) NOT NULL,
   `MaNhanSu` int(11) NOT NULL,
-  `KhoaPhongBanCu` varchar(100) DEFAULT NULL,
-  `ChucVuCu` varchar(100) DEFAULT NULL,
-  `KhoaPhongBanMoi` varchar(100) DEFAULT NULL,
-  `ChucVuMoi` varchar(100) DEFAULT NULL,
-  `NgayThayDoi` date NOT NULL,
-  `LyDo` text DEFAULT NULL,
-  `GhiChu` text DEFAULT NULL
+  `PhongBan` varchar(100) DEFAULT NULL,
+  `ChucVu` varchar(100) DEFAULT NULL,
+  `ThoiGianBatDau` date DEFAULT NULL,
+  `ThoiGianKetThuc` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `lichsucongtac`
 --
 
-INSERT INTO `lichsucongtac` (`MaLichSu`, `MaNhanSu`, `KhoaPhongBanCu`, `ChucVuCu`, `KhoaPhongBanMoi`, `ChucVuMoi`, `NgayThayDoi`, `LyDo`, `GhiChu`) VALUES
-(1, 1, NULL, NULL, 'Ban Điều Hành', 'Giám đốc', '2010-01-15', 'Bổ nhiệm từ đầu', NULL),
-(2, 2, NULL, NULL, 'Ban Kế Toán', 'Phó Giám đốc', '2012-03-01', 'Thăng chức', NULL),
-(3, 3, NULL, NULL, 'Phòng Kỹ Thuật', 'Trưởng phòng', '2015-07-10', 'Bổ nhiệm mới', NULL),
-(4, 4, NULL, NULL, 'Phòng Nhân Sự', 'Nhân viên Kỹ thuật', '2018-09-01', 'Chuyển công tác', NULL),
-(5, 5, NULL, NULL, 'Phòng Tài Chính', 'Nhân viên Kế toán', '2020-05-01', 'Điều chỉnh nhân sự', NULL),
-(6, 6, NULL, NULL, 'Phòng Đào Tạo', 'Thực tập sinh', '2021-10-15', 'Mới gia nhập', NULL);
+INSERT INTO `lichsucongtac` (`MaLichSu`, `MaNhanSu`, `PhongBan`, `ChucVu`, `ThoiGianBatDau`, `ThoiGianKetThuc`) VALUES
+(1, 1, 'Phòng Kinh doanh', 'Trưởng phòng', '2020-01-15', '2023-12-31'),
+(3, 3, 'Phòng Tài chính', 'Phó phòng', '2018-05-01', '2022-08-31'),
+(5, 5, 'Phòng Marketing', 'Trợ lý', '2019-11-01', NULL),
+(10, 2, 'Phòng nhân sự', 'nhân viên', '2024-11-27', '2024-12-04'),
+(13, 1, 'Phòng nhân sự', 'giám đốc', '2024-12-20', '2024-12-24'),
+(15, 5, 'Phòng marketing', 'trưởng phòng', '2024-12-11', '2024-12-20'),
+(19, 2, 'Phòng marketing', 'nhân viên', '2024-12-29', '0000-00-00'),
+(20, 3, 'Phòng marketing', 'nhân viên', '2024-12-07', '0000-00-00'),
+(21, 2, 'Phòng nhân sự', 'giám đốc', '2024-12-12', '2025-01-02');
 
 -- --------------------------------------------------------
 
@@ -220,12 +220,12 @@ CREATE TABLE `nguoidung` (
 
 INSERT INTO `nguoidung` (`MaNguoiDung`, `TenDangNhap`, `MatKhau`, `Email`, `HoTen`, `SoDienThoai`, `DiaChi`, `PhanQuyen`, `TrangThaiTaiKhoan`, `NgayTao`, `LanDangNhapCuoi`, `MaNhanSu`) VALUES
 (1, 'admin1', 'hashed_password1', 'admin1@example.com', 'Nguyễn Văn A', '0987654321', 'Hà Nội', 'Admin', 'Hoạt động', '2024-11-30', '2024-11-30 09:07:34', 1),
-(3, 'user3', 'hashed_password3', 'user3@example.com', 'Lê Văn C', '0901234567', 'Đà Nẵng', 'User', 'Hoạt động', '2024-11-30', '2024-11-30 09:07:34', 3),
-(4, 'ke_toan1', 'hashed_password4', 'ke_toan1@example.com', 'Phạm Thị D', '0934567890', 'Hải Phòng', 'Kế Toán', 'Hoạt động', '2024-11-30', '2024-11-30 09:07:34', 4),
+(3, 'user3', '$2y$10$buonWujsy8Jnl1lq4Q/rO.gGC71t2j/gwKhJ2wXnqraGgxWump.dK', 'levanc@example.com', 'Lê Văn C', '0901234567', 'Đà Nẵng', 'User', 'Hoạt động', '2024-11-30', '2024-12-27 15:38:51', 3),
+(4, 'ke_toan1', '$2y$10$JhStyBhrD8uOVz7rnC2YPugm.3vj04lo7xoIbX1dpqLhgX52cz/yK', 'phamthid@example.com', 'Phạm Thị D', '0934567890', 'Hải Phòng', 'Kế Toán', 'Hoạt động', '2024-11-30', '2024-12-26 13:22:34', 4),
 (5, 'user5', 'hashed_password5', 'user5@example.com', 'Vũ Minh E', '0945678901', 'Huế', 'User', 'Hoạt động', '2024-11-30', '2024-11-30 09:07:34', 5),
 (6, 'user6', 'hashed_password6', 'user6@example.com', 'Hoàng Anh F', '0956789012', 'Cần Thơ', 'User', 'Hoạt động', '2024-11-30', '2024-11-30 09:07:34', 6),
 (7, 'admin2', '$2y$10$TGn25KkCtuQp67c/xr/AO.z2U5Q6XWAKI2rEfU.CMaZ/N7DHC5XKG', '', '', '', '', 'Admin', 'Hoạt động', '2024-11-30', '2024-11-30 09:25:31', NULL),
-(10, 'user', '$2y$10$SuQyQqypGchUSFw67D4z/uP.cOXk8htq9s1FKDOsGgZS75YhtE7AK', 'nguyenvana@example.com', 'Nguyễn Văn A', '0987654321', 'Hà Nội', 'User', 'Hoạt động', '2024-11-30', '2024-11-30 10:58:52', 1);
+(10, 'user', '$2y$10$vRssjSdSFZSkxRpZvOlBceyI6m4iu1wzjbNagUrSmIz0oqde9A8b6', 'nguyenvana@example.com', 'Nguyễn Văn A', '0987654321', 'Hà Nội', 'User', 'Hoạt động', '2024-11-30', '2024-12-27 15:45:45', 1);
 
 -- --------------------------------------------------------
 
@@ -350,7 +350,7 @@ ALTER TABLE `congviec`
 -- AUTO_INCREMENT cho bảng `lichsucongtac`
 --
 ALTER TABLE `lichsucongtac`
-  MODIFY `MaLichSu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `MaLichSu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `luong`

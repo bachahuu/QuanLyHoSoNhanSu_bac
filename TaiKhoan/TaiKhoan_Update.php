@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         UPDATE NguoiDung 
         SET 
             HoTen = '$hoTen',
-            Email = '$email',
             SoDienThoai = '$soDienThoai',
             DiaChi = '$diaChi',
             MatKhau = '$hashed_password',
