@@ -97,17 +97,14 @@
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
 
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Tìm kiếm...">
-            </div>
+
 
             <img src="../Img/IMG_0190.JPG" alt="Avatar" style="margin-right: 50px;">
         </div>
 
         <div class="dash-content" style="margin-top: 20px;">
             <div class="container" style="text-align: center;">
-                <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Quản lý Người dùng</b></h1>
+                <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Quản Lý Người Dùng</b></h1>
 
                 <div class="input-group mb-3" style="margin-top: 50px; width: 400px;">
                     <form action="TaiKhoan_Index.php" method="get" style="display: flex; width: 100%;">

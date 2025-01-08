@@ -28,14 +28,14 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li><a href="./Luong/Luong_Index.php">
                         <i class="uil uil-subject"></i>
                         <span class="link-name">Quản lý lương</span>
                     </a></li>
-                <li><a href="#">
+                <!-- <li><a href="">
                         <i class="uil uil-analytics"></i>
                         <span class="link-name">Báo cáo và thống kê</span>
-                    </a></li>
+                    </a></li> -->
             </ul>
 
             <ul class="logout-mode">

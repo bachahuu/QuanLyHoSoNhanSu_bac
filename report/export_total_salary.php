@@ -1,59 +1,42 @@
 <?php
+// Kết nối cơ sở dữ liệu
 require_once '../Connect.php';
 
+// Kiểm tra nếu tháng được gửi từ form
 if (isset($_GET['month']) && !empty($_GET['month'])) {
-    $month = $_GET['month'];
-    $sql = "SELECT nhansu.HoTen, luong.MaNhanSu, luong.MucLuongCoBan, luong.PhuCap, 
-            luong.KhauTru, luong.ThueThuNhap, luong.TongLuong
-            FROM luong
+    $month = $_GET['month']; // Dạng YYYY-MM
+
+    // Truy vấn để lấy dữ liệu lương theo tháng
+    $sql = "SELECT nhansu.HoTen, luong.MaNhanSu, luong.MucLuongCoBan, luong.PhuCap, luong.KhauTru, luong.ThueThuNhap, luong.TongLuong 
+            FROM luong 
             JOIN nhansu ON nhansu.MaNhanSu = luong.MaNhanSu
             WHERE DATE_FORMAT(luong.ThangLuong, '%Y-%m') = ?";
-            
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $month);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        // Thiết lập header cho file Excel
-        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment;filename="bao_cao_luong_' . $month . '.xlsx"');
-        header('Cache-Control: max-age=0');
+    if ($result->num_rows > 0) {
+        // Tên file Excel
+        $fileName = "bao_cao_luong_$month.xls";
 
-        // Tạo temporary file
-        $tmpfile = tempnam(sys_get_temp_dir(), 'excel');
-        $file = fopen($tmpfile, 'w');
+        // Đặt header để xuất file Excel
+        header("Content-Type: application/vnd.ms-excel; charset=UTF-8");
+        header("Content-Disposition: attachment; filename=\"$fileName\"");
+        header("Pragma: no-cache");
+        header("Expires: 0");
 
-        // Thêm BOM để fix lỗi tiếng Việt
-        fwrite($file, chr(239) . chr(187) . chr(191));
+        // Thêm BOM để hiển thị đúng phông chữ
+        echo "\xEF\xBB\xBF";
 
-        // Viết header
-        $headers = array('Họ và Tên', 'Mã Nhân Sự', 'Mức Lương Cơ Bản', 'Phụ Cấp', 'Khấu Trừ', 'Thuế Thu Nhập', 'Tổng Lương');
-        fputcsv($file, $headers, "\t");
+        // Bắt đầu xuất dữ liệu
+        echo "Họ và Tên\tMã Nhân Sự\tMức Lương Cơ Bản\tPhụ Cấp\tKhấu Trừ\tThuế Thu Nhập\tTổng Lương\n";
 
-        // Viết dữ liệu
         while ($row = $result->fetch_assoc()) {
-            $line = array(
-                $row['HoTen'],
-                $row['MaNhanSu'],
-                number_format($row['MucLuongCoBan'], 0, ',', '.'),
-                number_format($row['PhuCap'], 0, ',', '.'),
-                number_format($row['KhauTru'], 0, ',', '.'),
-                number_format($row['ThueThuNhap'], 0, ',', '.'),
-                number_format($row['TongLuong'], 0, ',', '.')
-            );
-            fputcsv($file, $line, "\t");
+            echo "{$row['HoTen']}\t{$row['MaNhanSu']}\t" . number_format($row['MucLuongCoBan'], 0, ',', '.') . "\t" .
+                 number_format($row['PhuCap'], 0, ',', '.') . "\t" . number_format($row['KhauTru'], 0, ',', '.') . "\t" .
+                 number_format($row['ThueThuNhap'], 0, ',', '.') . "\t" . number_format($row['TongLuong'], 0, ',', '.') . "\n";
         }
-
-        // Đóng file
-        fclose($file);
-
-        // Đọc nội dung file và gửi về client
-        readfile($tmpfile);
-
-        // Xóa file tạm
-        unlink($tmpfile);
-        
     } else {
         echo "Không có dữ liệu lương cho tháng $month.";
     }
