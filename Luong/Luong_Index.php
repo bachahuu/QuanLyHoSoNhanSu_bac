@@ -99,7 +99,7 @@
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
 
-            <img src="../Img/profile.jpg" alt="Avatar" style="margin-right: 50px;">
+            <img src="../Img/IMG_0190.JPG" alt="Avatar" style="margin-right: 50px;">
         </div>
 
         <div class="container mt-4">

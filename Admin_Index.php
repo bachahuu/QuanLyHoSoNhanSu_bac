@@ -20,7 +20,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="../Img/vlogo.png" alt="" style="width: 190px; padding-left:23px;">
+                <img src="./Img/vlogo.png" alt="" style="width: 190px; padding-left:23px;">
             </div>
 
             <!-- <span class="logo_name" style="color: orange;">UTT SCHOOL</span> -->
@@ -86,13 +86,7 @@
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
 
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Tìm kiếm...">
-            </div>
-
             <img src="./Img/IMG_0190.JPG" alt="Avatar" style="margin-right: 50px;">
-
 
 
         </div>

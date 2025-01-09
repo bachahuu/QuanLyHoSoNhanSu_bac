@@ -200,7 +200,7 @@ if (isset($_SESSION['TenDangNhap'])) {
             <i class="uil uil-bars sidebar-toggle"></i>
 
 
-            <img src="./Img/profile.jpg" alt="Avatar" style="margin-right: 50px;">
+            <img src="../Img/AVT.jpg" alt="Avatar" style="margin-right: 50px;">
         </div>
 
         <!-- Bảng danh sách đơn nghỉ phép -->

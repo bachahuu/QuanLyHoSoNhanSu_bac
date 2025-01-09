@@ -65,6 +65,8 @@ if ($thangLuong) {
         echo '<p>Không tìm thấy thông tin lương cho tháng được chọn.</p>';
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -147,6 +149,12 @@ if ($thangLuong) {
     </nav>
 
     <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <img src="../Img/AVT.jpg" alt="Avatar" style="margin-right: 50px;">
+        </div>
+
         <div class="dash-content">
             <div class="container mt-5">
                 <h3 class="text-center">Chi Tiết Lương</h3>

@@ -138,15 +138,6 @@ if ($resultNguoiDung->num_rows > 0) {
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
 
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Tìm kiếm...">
-            </div>
-
-            <span style="margin-right: -220px; font-size: 18px; font-weight: bold;">
-                <?= htmlspecialchars($dataNhanSu['HoTen']) ?>
-            </span>
-
             <img src="../Img/AVT.jpg" alt="Avatar" style="margin-right: 50px;">
         </div>
 
