@@ -41,6 +41,6 @@ if (isset($_GET['month']) && !empty($_GET['month'])) {
         echo "Không có dữ liệu lương cho tháng $month.";
     }
 } else {
-    echo "Vui lòng chọn tháng.";
+     echo "Vui lòng chọn tháng.";   //commitcommit
 }
 ?>
