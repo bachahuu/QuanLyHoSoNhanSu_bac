@@ -313,7 +313,6 @@
                                 <label for="PhanQuyen">Phân quyền</label>
                                 <select class="form-control" id="PhanQuyen" name="PhanQuyen" required>
                                     <option value="Admin">Admin</option>
-                                    <option value="Kế toán">Kế Toán</option>
                                     <option value="User">User</option>
                                     <option value="khac">Khác</option>
                                 </select>
@@ -426,7 +425,6 @@
                                 <label for="update_PhanQuyen">Phân quyền</label>
                                 <select class="form-control" id="update_PhanQuyen" name="PhanQuyen" required>
                                     <option value="Admin">Admin</option>
-                                    <option value="Kế Toán">Kế Toán</option>
                                     <option value="User">User</option>
                                     <option value="khac">Khác</option>
                                 </select>
