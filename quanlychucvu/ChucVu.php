@@ -77,7 +77,7 @@ $i = 1;
                         <i class="uil uil-book-reader"></i>
                         <span class="link-name">Quản lý công việc</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../quanlychucvu/ChucVu.php">
                         <i class="uil uil-briefcase-alt"></i>
                         <span class="link-name">Quản lý Chức Vụ</span>
                     </a></li>
@@ -104,17 +104,6 @@ $i = 1;
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
-
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Chế độ</span>
-                    </a>
-
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>

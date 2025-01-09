@@ -110,16 +110,6 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
 
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Chế độ</span>
-                    </a>
-
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>
@@ -228,11 +218,11 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                         <div class="col-md-6">
                             <label for="madinhdanh" class="form-label">Mã Định Danh</label>
                             <input type="text" id="madinhdanh" name="madinhdanh" class="form-control"
-                                placeholder="Ví Dụ : NV...">
+                                placeholder="Ví Dụ : NV..." required>
                         </div>
                         <div class="col-md-6">
                             <label for="TenChucVu">Tên Chức Vụ</label>
-                            <select id="TenChucVu" name="machucvu" class="form-control">
+                            <select id="TenChucVu" name="machucvu" class="form-control" required>
                                 <?php 
             while($r = mysqli_fetch_assoc($result_chucvu)) {
                 echo '<option value="' . $r['MaChucVu'] . '">' . $r['TenChucVu'] . '</option>';
@@ -244,8 +234,8 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                         <!-- Khoa/Phòng Ban -->
                         <div class="col-md-6">
                             <label for="department" class="form-label">Khoa/Phòng Ban</label>
-                            <select id="department" class="form-control" name="khoa/phongban">
-                                <option selected disabled>Chọn khoa/phòng ban</option>
+                            <select id="department" class="form-control" name="khoa/phongban" required>
+                                <option value="" selected disabled>Chọn khoa/phòng ban</option>
                                 <option value="Ban Kế Toán">Ban Kế Toán</option>
                                 <option value="Phòng Kỹ Thuật">Phòng Kỹ Thuật</option>
                                 <option value="Phòng Nhân Sự">Phòng Nhân Sự</option>
@@ -257,24 +247,24 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                         <div class="col-md-6">
                             <label for="position" class="form-label">Số giờ làm</label>
                             <input type="number" name="sogiolam" id="position" class="form-control" placeholder="0.0"
-                                step="0.1" min="0">
+                                step="0.1" min="0" required>
                         </div>
                         <!-- hệ số lương -->
                         <div class="col-md-6">
                             <label for="position" class="form-label">Hệ số lương</label>
                             <input type="number" id="position" name="hesoluong" class="form-control" placeholder="0.0"
-                                step="0.1" min="0">
+                                step="0.1" min="0" required>
                         </div>
                         <!-- phụ cấp chức vụ -->
                         <div class="col-md-6">
                             <label for="position" class="form-label">Phụ cấp chức vụ</label>
                             <input type="number" id="position" name="phucapchucvu" class="form-control"
-                                placeholder="0.0" step="0.1" min="0">
+                                placeholder="0.0" step="0.1" min="0" required>
                         </div>
                         <!-- Ngày Bắt Đầu Làm Việc -->
                         <div class="col-md-6">
                             <label for="startDate" class="form-label">Ngày Bắt Đầu Làm Việc</label>
-                            <input type="date" id="startDate" name="startDate" class="form-control">
+                            <input type="date" id="startDate" name="startDate" class="form-control" required>
                         </div>
                         <!-- Ngày kết thúc -->
                         <div class="col-md-6">
@@ -372,13 +362,12 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
                         </div>
                         <div class="form-group">
                             <label for="NgayBatDau">Ngày Bắt Đầu </label>
-                            <input type="text" class="form-control" name="NgayBatDau" id="NgayBatDau" rows="3"
+                            <input type="date" class="form-control" name="NgayBatDau" id="NgayBatDau" rows="3"
                                 required></input>
                         </div>
                         <div class="form-group">
                             <label for="NgayKetThuc">Ngày Kết Thúc </label>
-                            <input type="text" class="form-control" name="NgayKetThuc" id="NgayKetThuc" rows="3"
-                                required></input>
+                            <input type="date" id="NgayKetThuc" name="NgayKetThuc" class="form-control" rows="3">
                         </div>
                         <button type="submit" class="btn btn-success">Cập Nhật</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>

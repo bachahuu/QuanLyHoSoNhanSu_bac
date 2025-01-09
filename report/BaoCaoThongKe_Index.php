@@ -71,16 +71,6 @@
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
 
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Chế độ</span>
-                    </a>
-
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>

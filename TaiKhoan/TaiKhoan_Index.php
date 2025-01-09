@@ -39,7 +39,7 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li><a href="../TaiKhoan/TaiKhoan_Index.php">
                         <i class="uil uil-user"></i>
                         <span class="link-name">Quản lý tài khoản</span>
                     </a></li>
@@ -78,17 +78,6 @@
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
-
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Chế độ</span>
-                    </a>
-
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>

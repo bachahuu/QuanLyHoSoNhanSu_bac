@@ -142,6 +142,90 @@ if (isset($_SESSION['TenDangNhap'])) {
         color: green;
         font-weight: bold;
     }
+
+    .timeline {
+        position: relative;
+        padding: 20px 0;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #e9ecef;
+    }
+
+    .timeline-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-left: 80px;
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-icon {
+        position: absolute;
+        left: -80px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        background: #0dcaf0;
+    }
+
+    .timeline-icon i {
+        font-size: 20px;
+    }
+
+    .timeline-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .content-main {
+        flex: 1;
+    }
+
+    .btn-danger {
+        padding: 6px 12px;
+        white-space: nowrap;
+        height: fit-content;
+    }
+
+    .fw-bold {
+        font-weight: 600;
+    }
+
+    @media (max-width: 575.98px) {
+        .timeline::before {
+            left: 30px;
+        }
+
+        .timeline-item {
+            margin-left: 60px;
+        }
+
+        .timeline-icon {
+            left: -60px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+        }
+    }
     </style>
 </head>
 
@@ -199,8 +283,12 @@ if (isset($_SESSION['TenDangNhap'])) {
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
 
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Tìm kiếm...">
+            </div>
 
-            <img src="../Img/AVT.jpg" alt="Avatar" style="margin-right: 50px;">
+            <img src="./Img/profile.jpg" alt="Avatar" style="margin-right: 50px;">
         </div>
 
         <!-- Bảng danh sách đơn nghỉ phép -->
@@ -217,26 +305,35 @@ if (isset($_SESSION['TenDangNhap'])) {
                     <div class="timeline">
                         <?php while ($row = $resultnghi->fetch_assoc()): ?>
                         <div class="timeline-item mb-4">
-                            <div class="timeline-icon bg-info text-white">
+                            <div class="timeline-icon">
                                 <i class="uil uil-briefcase"></i>
                             </div>
                             <div class="timeline-content">
-                                <h5 class="fw-bold"><?php echo htmlspecialchars($row['TrangThai']); ?></h5>
-                                <small class="text-secondary">
-                                    Ngày bắt đầu: <span
-                                        class="fw-bold"><?php echo htmlspecialchars($row['NgayBatDau']); ?></span>
-                                </small></p>
-                                <small class="text-secondary">
-                                    Ngày kết thúc : <span
-                                        class="fw-bold"><?php echo htmlspecialchars($row['NgayKetThuc']); ?></span>
-                                </small>
-                                <p class="mb-1 text-muted"><?php echo htmlspecialchars($row['LyDo']); ?></p>
+                                <div class="content-main">
+                                    <h5 class="fw-bold"><?php echo htmlspecialchars($row['TrangThai']); ?></h5>
+                                    <small>
+                                        Ngày bắt đầu: <span
+                                            class="fw-bold"><?php echo htmlspecialchars($row['NgayBatDau']); ?></span>
+                                    </small>
+                                    <p></p>
+                                    <small>
+                                        Ngày kết thúc: <span
+                                            class="fw-bold"><?php echo htmlspecialchars($row['NgayKetThuc']); ?></span>
+                                    </small>
+                                    <p class="mt-2"><?php echo htmlspecialchars($row['LyDo']); ?></p>
+                                </div>
+                                <a onclick="return confirm('Bạn có muốn xóa không?')" class="btn btn-danger"
+                                    href="Delete_Nghiphep.php?MaNghiPhep=<?php echo $row['MaNghiPhep']; ?>">
+                                    Thu Hồi
+                                </a>
                             </div>
                         </div>
                         <?php endwhile; ?>
                     </div>
                     <?php else: ?>
-                    <p>Không có lịch sử công tác nào được tìm thấy.</p>
+                    <div class="alert alert-info">
+                        Không có đơn nghỉ phép nào được tìm thấy.
+                    </div>
                     <?php endif; ?>
 
                 </div>
@@ -250,41 +347,40 @@ if (isset($_SESSION['TenDangNhap'])) {
                                     Thêm đơn nghỉ phép</h1>
                             </div>
                             <div class="modal-body">
-                                <form action="Add_Nghiphep.php" method="POST">
+                                <form action="Add_Nghiphep.php" method="POST" onsubmit="return validateDates()">
                                     <input type="hidden" name="MaNhanSu" value="<?php echo $maNhanSu; ?>">
                                     <?php
-                $maNhanSu = isset($_GET['MaNhanSu']) ? $_GET['MaNhanSu'] : '';
-
-                require_once '../Connect.php';
-                if (!empty($maNhanSu)) {
-                    $sql = "SELECT nhansu.Hoten,
-                                    nhansu.MaNhanSu,
-                                    nghiphep.MaNhanSu 
-                                    FROM nghiphep
-                                    Join nhansu on nhansu.MaNhanSu=nghiphep.MaNhanSu 
-                                    WHERE nghiphep.MaNhanSu = '$maNhanSu'";
-                    $result = mysqli_query($conn, $sql);
-                    if ($row = mysqli_fetch_assoc($result)) {
-                        $tenNhanSu = $row['Hoten'];
+                    $maNhanSu = isset($_GET['MaNhanSu']) ? $_GET['MaNhanSu'] : '';
+                    require_once '../Connect.php';
+                    if (!empty($maNhanSu)) {
+                        $sql = "SELECT nhansu.Hoten, nhansu.MaNhanSu, nghiphep.MaNhanSu 
+                                FROM nghiphep
+                                Join nhansu on nhansu.MaNhanSu=nghiphep.MaNhanSu 
+                                WHERE nghiphep.MaNhanSu = '$maNhanSu'";
+                        $result = mysqli_query($conn, $sql);
+                        if ($row = mysqli_fetch_assoc($result)) {
+                            $tenNhanSu = $row['Hoten'];
+                        }
                     }
-                }
-                ?>
+                    ?>
                                     <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Tên nhân sự:</label>
+                                        <label for="recipient-name" class="col-form-label">Tên nhân sự:</label>
                                         <input type="text" id="manhansu" class="form-control"
                                             value="<?php echo htmlspecialchars($tenNhanSu); ?>" readonly>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Ngày bắt đầu:</label>
-                                        <input type="date" id="NgayBatDau" class="form-control" name="NgayBatDau">
+                                        <label for="recipient-name" class="col-form-label">Ngày bắt đầu:</label>
+                                        <input type="date" id="NgayBatDau" class="form-control" name="NgayBatDau"
+                                            required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Ngày kết thúc:</label>
-                                        <input type="date" id="NgayKetThuc" class="form-control" name="NgayKetThuc">
+                                        <label for="recipient-name" class="col-form-label">Ngày kết thúc:</label>
+                                        <input type="date" id="NgayKetThuc" class="form-control" name="NgayKetThuc"
+                                            required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Lý do:</label>
-                                        <input type="text" id="ChucVu" class="form-control" name="LyDo">
+                                        <input type="text" id="ChucVu" class="form-control" name="LyDo" required>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -297,6 +393,46 @@ if (isset($_SESSION['TenDangNhap'])) {
                         </div>
                     </div>
                 </div>
+
+                <script>
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('NgayBatDau').setAttribute('min', today);
+                document.getElementById('NgayKetThuc').setAttribute('min', today);
+
+                function validateDates() {
+                    const startDate = new Date(document.getElementById('NgayBatDau').value);
+                    const endDate = new Date(document.getElementById('NgayKetThuc').value);
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+
+                    const startDateError = document.getElementById('startDateError');
+                    const endDateError = document.getElementById('endDateError');
+
+                    // Reset error messages
+                    startDateError.textContent = '';
+                    endDateError.textContent = '';
+
+                    if (startDate < today) {
+                        startDateError.textContent = "Ngày bắt đầu phải từ ngày hôm nay.";
+                        document.getElementById('NgayBatDau').value = '';
+                        return false;
+                    }
+
+                    if (endDate < today) {
+                        endDateError.textContent = "Ngày kết thúc phải từ ngày hôm nay trở đi.";
+                        document.getElementById('NgayKetThuc').value = '';
+                        return false;
+                    }
+
+                    if (startDate >= endDate) {
+                        endDateError.textContent = "Ngày kết thúc phải lớn hơn ngày bắt đầu.";
+                        document.getElementById('NgayKetThuc').value = '';
+                        return false;
+                    }
+
+                    return true;
+                }
+                </script>
             </div>
     </section>
 

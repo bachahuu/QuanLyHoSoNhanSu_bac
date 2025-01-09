@@ -22,6 +22,7 @@ if (isset($_GET['id'])) {
     $khauTru = $row['KhauTru'];
     $thueThuNhap = $row['ThueThuNhap'];
     $tongLuong = $row['TongLuong'];
+    $thangluong = $row['ThangLuong'];
 } else {
     echo "Không có mã lương để sửa.";
     exit;
@@ -34,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phuCap = $_POST['PhuCap'];
     $khauTru = $_POST['KhauTru'];
     $thueThuNhap = $_POST['ThueThuNhap'];
-
+    $thangluong = $_POST['ThangLuong'];;
     // Tính lại tổng lương
     $tongLuong = $mucLuongCoBan + $phuCap - $khauTru - $thueThuNhap;
 
     // Cập nhật vào cơ sở dữ liệu
-    $update_sql = "UPDATE luong SET MucLuongCoBan = '$mucLuongCoBan', PhuCap = '$phuCap', KhauTru = '$khauTru', ThueThuNhap = '$thueThuNhap', TongLuong = '$tongLuong' WHERE MaLuong = '$maLuong'";
+    $update_sql = "UPDATE luong SET MucLuongCoBan = '$mucLuongCoBan', PhuCap = '$phuCap', KhauTru = '$khauTru', ThueThuNhap = '$thueThuNhap', TongLuong = '$tongLuong',ThangLuong = '$thangluong' WHERE MaLuong = '$maLuong'";
     if (mysqli_query($conn, $update_sql)) {
         // Chuyển hướng về trang danh sách lương sau khi cập nhật
         header("Location: Luong_Index.php");
@@ -65,6 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container mt-4">
         <h3 class="text-center">Sửa Lương</h3>
         <form action="" method="POST">
+            <div class="form-group">
+                <label for="ThangLuong">Tháng Lương:</label>
+                <input type="date" class="form-control" id="ThangLuong" name="ThangLuong"
+                    value="<?php echo $thangluong; ?>" required>
+            </div>
             <div class="form-group">
                 <label for="MucLuongCoBan">Mức Lương Cơ Bản:</label>
                 <input type="number" class="form-control" id="MucLuongCoBan" name="MucLuongCoBan"

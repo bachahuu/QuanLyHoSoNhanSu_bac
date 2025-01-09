@@ -13,6 +13,20 @@ $heSoLuong = isset($_POST['HeSoLuong']) ? $_POST['HeSoLuong'] : null; // Hệ s�
 $khoaPhongBan = isset($_POST['KhoaPhongBan']) ? $_POST['KhoaPhongBan'] : null; // Khoa/Phòng ban
 $ngayBatDau = isset($_POST['NgayBatDau']) ? $_POST['NgayBatDau'] : null; // Ngày bắt đầu
 $ngayKetThuc = isset($_POST['NgayKetThuc']) ? $_POST['NgayKetThuc'] : null; // Ngày kết thúc
+// Kiểm tra nếu năm của ngày kết thúc nhỏ hơn năm của ngày bắt đầu
+if ($ngayBatDau && $ngayKetThuc) {
+    $namBatDau = (int)date('Y', strtotime($ngayBatDau));
+    $namKetThuc = (int)date('Y', strtotime($ngayKetThuc));
+    
+    // So sánh ngày bắt đầu và ngày kết thúc
+    if ($namKetThuc < $namBatDau) {
+        echo "<script>alert('Năm của ngày kết thúc không được nhỏ hơn năm của ngày bắt đầu. Vui lòng nhập lại.'); window.history.back();</script>";
+        exit; // Dừng thực hiện mã
+    } elseif ($ngayBatDau === $ngayKetThuc) {
+        echo "<script>alert('Ngày bắt đầu và ngày kết thúc không được trùng nhau. Vui lòng nhập lại.'); window.history.back();</script>";
+        exit; // Dừng thực hiện mã
+    }
+}
 
 // Kiểm tra nếu chức vụ thay đổi
 if ($maChucVuCu !== $maChucVuMoi) {

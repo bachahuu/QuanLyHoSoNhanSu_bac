@@ -51,7 +51,16 @@
         VALUES ('$MaDinhDanh','$HoTen', '$GioiTinh', '$NamSinh', '$CMND_CCCD', '$SoDienThoai', '$Email', '$DiaChi', '$NgayVaoLam', '$NgayNghiHuu', '$TinhTrangLamViec', '$LoaiHopDong', '$TenChucVu')";
 
         if (mysqli_query($conn, $sql_insert)) {
-            echo "<script>alert('Thêm nhân sự thành công!'); window.location.href = 'NhanSu_Index.php';</script>";
+            // Lấy ID của nhân sự vừa thêm
+            $MaNhanSu = mysqli_insert_id($conn);
+
+            // Thêm Mã Nhân Sự vào bảng Lương
+            $sql_insert_luong = "INSERT INTO luong (MaNhanSu) VALUES ('$MaNhanSu')";
+            if (mysqli_query($conn, $sql_insert_luong)) {
+                echo "<script>alert('Thêm nhân sự và bảng lương thành công!'); window.location.href = 'NhanSu_Index.php';</script>";
+            } else {
+                echo "Lỗi khi thêm vào bảng lương: " . mysqli_error($conn);
+            }
         } else {
             echo "Lỗi: " . mysqli_error($conn);
         }

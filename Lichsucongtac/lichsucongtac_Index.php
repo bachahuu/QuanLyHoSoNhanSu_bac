@@ -128,7 +128,7 @@
                         <i class="uil uil-subject"></i>
                         <span class="link-name">Quản lý lương</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Lichsucongtac/lichsucongtac_Index.php">
                         <i class="uil uil-book-open"></i>
                         <span class="link-name">Lịch sử công tác</span>
                     </a></li>
@@ -144,16 +144,7 @@
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
 
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Chế độ</span>
-                    </a>
 
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>

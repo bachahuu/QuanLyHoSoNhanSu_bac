@@ -43,7 +43,7 @@
                         <i class="uil uil-user"></i>
                         <span class="link-name">Quản lý tài khoản</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../NhanSu/NhanSu_Index.php">
                         <i class="uil uil-table"></i>
                         <span class="link-name">Quản lý nhân sự</span>
                     </a></li>
@@ -79,16 +79,6 @@
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
 
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Chế độ</span>
-                    </a>
-
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>

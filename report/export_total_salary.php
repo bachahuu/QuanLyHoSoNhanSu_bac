@@ -17,30 +17,54 @@ if (isset($_GET['month']) && !empty($_GET['month'])) {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Tên file Excel
-        $fileName = "bao_cao_luong_$month.xls";
+        // Tên file CSV
+        $fileName = "bao_cao_luong_$month.csv";
 
-        // Đặt header để xuất file Excel
-        header("Content-Type: application/vnd.ms-excel; charset=UTF-8");
+        // Đặt header để xuất file CSV
+        header("Content-Type: text/csv; charset=UTF-8");
         header("Content-Disposition: attachment; filename=\"$fileName\"");
         header("Pragma: no-cache");
         header("Expires: 0");
 
-        // Thêm BOM để hiển thị đúng phông chữ
+        // Thêm BOM để hiển thị đúng phông chữ trong Excel
         echo "\xEF\xBB\xBF";
 
-        // Bắt đầu xuất dữ liệu
-        echo "Họ và Tên\tMã Nhân Sự\tMức Lương Cơ Bản\tPhụ Cấp\tKhấu Trừ\tThuế Thu Nhập\tTổng Lương\n";
+        // Mở output stream
+        $output = fopen('php://output', 'w');
 
+        // Thêm tiêu đề báo cáo
+        fputcsv($output, ["Báo cáo lương tháng $month"]);
+        fputcsv($output, []); // Dòng trống
+
+        // Tiêu đề cột
+        fputcsv($output, [
+            'Họ và Tên',
+            'Mã Nhân Sự',
+            'Mức Lương Cơ Bản (VNĐ)',
+            'Phụ Cấp (VNĐ)',
+            'Khấu Trừ (VNĐ)',
+            'Thuế Thu Nhập (VNĐ)',
+            'Tổng Lương (VNĐ)'
+        ]);
+
+        // Xuất dữ liệu từng dòng
         while ($row = $result->fetch_assoc()) {
-            echo "{$row['HoTen']}\t{$row['MaNhanSu']}\t" . number_format($row['MucLuongCoBan'], 0, ',', '.') . "\t" .
-                 number_format($row['PhuCap'], 0, ',', '.') . "\t" . number_format($row['KhauTru'], 0, ',', '.') . "\t" .
-                 number_format($row['ThueThuNhap'], 0, ',', '.') . "\t" . number_format($row['TongLuong'], 0, ',', '.') . "\n";
+            fputcsv($output, [
+                $row['HoTen'],
+                $row['MaNhanSu'],
+                $row['MucLuongCoBan'], // Không định dạng số
+                $row['PhuCap'],
+                $row['KhauTru'],
+                $row['ThueThuNhap'],
+                $row['TongLuong']
+            ]);
         }
+
+        fclose($output);
     } else {
         echo "Không có dữ liệu lương cho tháng $month.";
     }
 } else {
-     echo "Vui lòng chọn tháng.";   //commitcommit
+    echo "Vui lòng chọn tháng.";
 }
 ?>

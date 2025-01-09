@@ -1,4 +1,5 @@
 <?php 
+
 require_once '../Connect.php';
 // Lấy dữ liệu từ form
 $madinhdanh = isset($_POST['madinhdanh']) ? $_POST['madinhdanh'] : null; // Mã nhansu
@@ -10,6 +11,20 @@ $khoaPhongBan = isset($_POST['khoa/phongban']) ? $_POST['khoa/phongban'] : null;
 $ngayBatDau = isset($_POST['startDate']) ? $_POST['startDate'] : null; // Ngày bắt đầu
 $ngayKetThuc = isset($_POST['endDate']) ? $_POST['endDate'] : null; // Ngày kết thúc
 $sogiolam = isset($_POST['sogiolam']) ? $_POST['sogiolam'] : null;
+// Kiểm tra nếu năm của ngày kết thúc nhỏ hơn năm của ngày bắt đầu
+if ($ngayBatDau && $ngayKetThuc) {
+    $namBatDau = (int)date('Y', strtotime($ngayBatDau));
+    $namKetThuc = (int)date('Y', strtotime($ngayKetThuc));
+    
+    // So sánh ngày bắt đầu và ngày kết thúc
+    if ($namKetThuc < $namBatDau) {
+        echo "<script>alert('Năm của ngày kết thúc không được nhỏ hơn năm của ngày bắt đầu. Vui lòng nhập lại.'); window.history.back();</script>";
+        exit; // Dừng thực hiện mã
+    } elseif ($ngayBatDau === $ngayKetThuc) {
+        echo "<script>alert('Ngày bắt đầu và ngày kết thúc không được trùng nhau. Vui lòng nhập lại.'); window.history.back();</script>";
+        exit; // Dừng thực hiện mã
+    }
+}
 
 $sql_select = "SELECT MaNhanSu FROM nhansu WHERE MaDinhDanh = '$madinhdanh' ";
 // Thực thi truy vấn

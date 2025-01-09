@@ -110,6 +110,10 @@
                         <i class="uil uil-book-reader"></i>
                         <span class="link-name">Quản lý công việc</span>
                     </a></li>
+                <li><a href="../quanlychucvu/ChucVu.php">
+                        <i class="uil uil-briefcase-alt"></i>
+                        <span class="link-name">Quản lý Chức Vụ</span>
+                    </a></li>
                 <li><a href="../Nghiphep/Nghiphep_Admin_Index.php">
                         <i class="uil uil-file-info-alt"></i>
                         <span class="link-name">Quản lý nghỉ phép</span>
@@ -134,16 +138,6 @@
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
 
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Chế độ</span>
-                    </a>
-
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>
@@ -152,12 +146,7 @@
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
 
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Tìm kiếm...">
-            </div>
-
-            <img src="./Img/profile.jpg" alt="Avatar" style="margin-right: 50px;">
+            <img src="../Img/IMG_0190.jpg" alt="Avatar" style="margin-right: 50px;">
         </div>
 
         <tbody>
@@ -397,8 +386,8 @@
                     }
                 }
                 ?>
-                            <input type="flex" name="MaNhanSu" value="<?php echo $maNhanSu; ?>">
-                            <input type="flex" id="malichsu" name="malichsu">
+                            <input type="hidden" name="MaNhanSu" value="<?php echo $maNhanSu; ?>">
+                            <input type="hidden" id="malichsu" name="malichsu">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Tên nhân sự:</label>
                                 <input type="text" id="manhansu" class="form-control" name='manhansu'

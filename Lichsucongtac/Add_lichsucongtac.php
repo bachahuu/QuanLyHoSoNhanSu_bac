@@ -8,6 +8,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cv = $_POST['ChucVu'];
     $tgbd = $_POST['ThoiGianBatDau'];
     $tgkt = $_POST['ThoiGianKetThuc'];
+// Kiểm tra nếu năm của ngày kết thúc nhỏ hơn năm của ngày bắt đầu
+if ($tgbd && $tgkt) {
+    $namBatDau = (int)date('Y', strtotime($tgbd));
+    $namKetThuc = (int)date('Y', strtotime($tgkt));
+    
+    // So sánh ngày bắt đầu và ngày kết thúc
+    if ($namKetThuc < $namBatDau) {
+        echo "<script>alert('Năm của ngày kết thúc không được nhỏ hơn năm của ngày bắt đầu. Vui lòng nhập lại.'); window.history.back();</script>";
+        exit; // Dừng thực hiện mã
+    } elseif ($ngayBatDau === $ngayKetThuc) {
+        echo "<script>alert('Ngày/tháng/năm bắt đầu và Ngày/tháng/năm kết thúc không được trùng nhau. Vui lòng nhập lại.'); window.history.back();</script>";
+        exit; // Dừng thực hiện mã
+    }
+}
 
     // Kiểm tra kết nối cơ sở dữ liệu
     if (!$conn) {

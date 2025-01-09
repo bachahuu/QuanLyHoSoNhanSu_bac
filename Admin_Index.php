@@ -14,6 +14,46 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <title>Admin</title>
+    <style>
+    /* Container bao quanh */
+    .styled-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f9f9f9;
+        /* Màu nền nhẹ */
+        border: 4px solid #007bff;
+        /* Viền màu xanh dương */
+        border-radius: 20px;
+        /* Bo góc cho viền */
+        padding: 30px;
+        /* Khoảng cách giữa viền và nội dung */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        /* Đổ bóng nhẹ */
+        margin: 30px auto;
+        /* Căn giữa và thêm khoảng cách */
+        width: 80%;
+        /* Chiều rộng bao phủ nội dung */
+    }
+
+    /* Chữ Xin Chào */
+    .styled-greeting {
+        font-family: 'Arial', sans-serif;
+        /* Phông chữ đơn giản */
+        font-size: 3rem;
+        /* Kích thước chữ lớn */
+        font-weight: bold;
+        /* Chữ đậm */
+        color: #007bff;
+        /* Màu chữ xanh dương */
+        text-transform: uppercase;
+        /* Viết hoa toàn bộ */
+        margin: 0;
+        /* Xóa khoảng cách mặc định */
+        text-align: center;
+        /* Căn giữa chữ */
+    }
+    </style>
 </head>
 
 <body>
@@ -68,16 +108,7 @@
                         <span class="link-name">Đăng xuất</span>
                     </a></li>
 
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Chế độ</span>
-                    </a>
 
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>
@@ -92,7 +123,9 @@
         </div>
 
         <div class="dash-content">
-
+            <div class="styled-container">
+                <h1 class="styled-greeting">XIN CHÀO!</h1>
+            </div>
         </div>
     </section>
 
