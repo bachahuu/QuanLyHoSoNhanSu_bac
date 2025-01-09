@@ -88,10 +88,6 @@
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Tìm kiếm báo cáo...">
-            </div>
             <img src="../Img/IMG_0190.jpg" alt="Avatar" style="margin-right: 50px;">
         </div>
 
@@ -108,16 +104,6 @@
                     <label for="NoiDung">Nội Dung Báo Cáo:</label>
                     <textarea class="form-control" id="NoiDung" name="NoiDung" rows="4" required></textarea>
                 </div>
-
-                <div class="form-group">
-                    <label for="TrangThaiBaoCao">Trạng Thái Báo Cáo:</label>
-                    <select class="form-control" id="TrangThaiBaoCao" name="TrangThaiBaoCao" required>
-                        <option value="Chờ duyệt">Chờ duyệt</option>
-                        <option value="Hoàn thành">Hoàn thành</option>
-                        <option value="Từ chối">Từ chối</option>
-                    </select>
-                </div>
-
                 <button type="submit" class="btn btn-primary">Cập Nhật Báo Cáo</button>
             </form>
         </div>
@@ -144,7 +130,6 @@
                         <th>Ngày Báo Cáo</th>
                         <th>Loại Báo Cáo</th>
                         <th>Trạng Thái</th>
-                        <th>Thao Tác</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -160,10 +145,9 @@
                                 <td>{$row['MaBaoCao']}</td>
                                 <td>" . date("d/m/Y", strtotime($row['NgayBaoCao'])) . "</td>
                                 <td>{$row['LoaiBaoCao']}</td>
-                                <td>{$row['TrangThaiBaoCao']}</td>
                                 <td>
                                     <a href='view_report.php?id={$row['MaBaoCao']}' class='btn btn-info btn-sm'>Xem</a>
-                                    <a href='export_excel_report.php?id={$row['MaBaoCao']}' class='btn btn-success btn-sm'>Xuất Excel</a>
+                                    <a href='export_excel_report.php?id={$row['MaBaoCao']}' class='btn btn-success btn-sm'>Xuất Note</a>
                                     <a href='delete_report.php?id={$row['MaBaoCao']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Bạn có chắc chắn muốn xóa báo cáo này?\")'>Xóa</a>
                                 </td>
                             </tr>";

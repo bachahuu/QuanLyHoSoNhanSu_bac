@@ -207,7 +207,7 @@ CREATE TABLE `nguoidung` (
   `HoTen` varchar(100) DEFAULT NULL,
   `SoDienThoai` varchar(20) DEFAULT NULL,
   `DiaChi` text DEFAULT NULL,
-  `PhanQuyen` enum('Admin','Kế Toán','User') NOT NULL DEFAULT 'User',
+  `PhanQuyen` enum('Admin','User') NOT NULL DEFAULT 'User',
   `TrangThaiTaiKhoan` enum('Hoạt động','Bị khóa') DEFAULT 'Hoạt động',
   `NgayTao` date DEFAULT curdate(),
   `LanDangNhapCuoi` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),

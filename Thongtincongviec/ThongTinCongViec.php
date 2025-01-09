@@ -66,10 +66,8 @@ $result_chucvu = mysqli_query($conn, $sql_chucvu);
             <div class="logo-image">
                 <img src="../Img/vlogo.png" alt="" style="width: 190px; padding-left:23px;">
             </div>
-
             <!-- <span class="logo_name" style="color: orange;">UTT SCHOOL</span> -->
         </div>
-
         <div class="menu-items">
             <ul class="nav-links">
                 <li><a href="../TaiKhoan/TaiKhoan_Index.php">

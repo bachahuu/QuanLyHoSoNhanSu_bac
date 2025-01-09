@@ -1,5 +1,5 @@
 <?php
-require_once './Connect.php';
+require_once '../Connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Lấy dữ liệu từ form
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Thực hiện câu lệnh SQL
     if (mysqli_query($conn, $sql)) {
-        header("Location: lichsucongtac_Index.php?message=Thêm thành công");
+        header('Location: Chitiet_lichsucongtac.php?MaNhanSu=' . $maNhanSu);
         exit();
     } else {
         echo "Lỗi: " . mysqli_error($conn);
